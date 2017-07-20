@@ -15,7 +15,7 @@
  * [其他](#others)
 
 
-### Core Android
+### Android 核心
 
 
 * 解释 Activity 的生命周期 .
