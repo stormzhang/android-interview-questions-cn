@@ -14,6 +14,32 @@
  * [Android 测试驱动开发](#android-test-driven-development)
  * [其他](#others)
 
+## <span id="data-structures-and-algorithms">数据结构和算法</span>
+
+* 简述图的深度搜索和广度搜索算法？
+
+## <span id="core-java">Java 核心</span>
+
+* HashMap如何扩容？
+
+## <span id="core-android">Android 核心</span>
+
+* 为什么不在onPause或onStop方法中保存数据，而是在onSaveInstanceState方法中保存
+
+## <span id="architecture">架构</span>
+
+## <span id="design-problem">设计问题</span>
+
+* 设计模式的原则有哪些？
+
+## <span id="tools-and-technologies">工具和技能</span>
+
+## <span id="android-test-driven-development">Android 测试驱动开发</span>
+
+## <span id="others"> 其他</span>
+
+
+
 ### License
 ```
    Copyright (C) 2017 stormzhang
@@ -30,3 +56,11 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 ```
+
+
+
+
+
+
+
+
