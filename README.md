@@ -13,9 +13,24 @@
  * [工具和技能](#tools-and-technologies)
  * [Android 测试驱动开发](#android-test-driven-development)
  * [其他](#others)
+ 
+ 
+ 
+### Android 测试驱动开发
+
+* Espresso 是什么? [链接](https://developer.android.com/training/testing/ui-testing/espresso-testing.html)
+* Robolectric 是什么？ [链接](http://robolectric.org/)
+* UI-Automator 是什么？ [链接](https://developer.android.com/training/testing/ui-testing/uiautomator-testing.html)
+* 请解释一下单元测试。 
+* 请解释一下设备化测试。
+* 你是否做过单元测试或者自动测试？
+* 为什么要使用 Mockito？ [链接](http://site.mockito.org/)
+* 请描述一下 JUnit 测试。
 
 ### License
 ```
+
+
    Copyright (C) 2017 stormzhang
 
    Licensed under the Apache License, Version 2.0 (the "License");
