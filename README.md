@@ -11,8 +11,14 @@
  * [架构](#架构)
  * [设计问题](#设计问题)
  * [工具和技能](#工具和技能)
- * [Android 测试驱动开发](#android-test-driven-development)
+ * [Android 测试驱动开发](#Android-测试驱动开发)
  * [其他](#others)
+
+
+### Android 测试驱动开发
+
+* adsfa
+* adf
 
 
 ### 架构
@@ -34,7 +40,7 @@
 * 请设计 Facebook Near-By Friends App。
 * 请设计 WhatsApp。
 * 请设计 SnapChat。
-* 基于地理位置 App 的设计问题 
+* 基于地理位置 App 的设计问题。
 
 
 ### 工具和技能
