@@ -31,7 +31,7 @@
 
     静态绑定用于方法重载，动态绑定用于方法重写。性能：重载比重写更有效率，原因是方法重写的绑定是在运行时完成的。
 
-    私有方法和用 final 修饰的方法可以重载但不可重写。这意味着一个类可以有多个同名的 private/final 方法，子类不能重写父类的 private/final 方法。
+    私有方法和用 `final` 修饰的方法可以重载但不可重写。这意味着一个类可以有多个同名的 `private/final` 方法，子类不能重写父类的 `private/final` 方法。
 
     方法重载的情况下不关心返回值类型， 它可以相同，也可以不同。但是方法重写的情况下可以有多个具体的返回值类型。
 
@@ -40,17 +40,17 @@
 #### 36 - 41    
 * 什么是访问修饰符？它们能做什么？
 * 接口可以继承另一个接口吗？
-* Java 中 static 关键字是什么意思？
+* Java 中 `static` 关键字是什么意思？
 * Java 中静态方法可以被重写吗？
 * 什么是多态？什么是继承？
-* Integer 和 int 之间的区别
+* `Integer` 和 `int` 之间的区别
 
 
 
-* StringBuilder 是怎么避免不可变字符串分配的问题？
+* `StringBuilder` 是怎么避免不可变字符串分配的问题？
 * 什么是自动装箱和拆箱？
 * 枚举和迭代器有什么区别？
-* Java 中 fail-fast 和 fail-safe 的区别？
+* Java 中 _fail-fast_ 和 _fail-safe_ 的区别？
 * 什么是 Java 优先级队列？
 * 什么是设计模式？[链接](https://github.com/iluwatar/java-design-patterns)
 
