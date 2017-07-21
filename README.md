@@ -28,7 +28,7 @@
  * [Android 测试驱动开发](#android-test-driven-development)
  * [其他](#others)
 
- ### 数据结构与算法
+### 数据结构与算法
 
 > 关于数据结构与算法，问题的难度完全取决于你所申请的公司
 
@@ -93,6 +93,187 @@
 * 广度优先搜索
 * 深度优先搜索
 * 贪心算法
+
+### Android 核心
+
+* 阐述一下 Activity 的生命周期。
+
+* 谈谈 Android 所有的应用组件。
+
+* Service 与 IntentService 的区别。
+
+* Android 应用的结构是什么？
+
+* Android 应用中如何保存数据。
+
+* 如何在 Android 应用中执行耗时操作。
+
+* 两个 Fragment 之间如何通信。
+
+* 阐述一下 Android 的通知系统。
+
+* 两个不同的 app 之间如何交互。
+
+* 什么是 Fragment？
+
+* 当创建 Fragment 的时候为什么建议只使用默认的构造方法？
+
+* 为什么 Bundle 被用来传递数据，为什么不能使用简单的 map 来传递？
+
+* 阐述一下 Fragment 的生命周期。
+
+* Android 中的 Dialog 是什么？
+
+* 解释下 Android 的 View 。
+
+* 你能创建自定义 View 吗？具体是如何创建的？
+
+* ViewGroups 是什么，它与 view 的区别在哪里？
+
+* Fragment 和 Activity 的区别是什么？一下它们之间有什么关系？
+
+* Serializable 接口和 Parcelable 接口的区别？在 Android 中最好使用哪种接口？
+
+* Activity 的启动模式有哪些？
+
+* 解释 Android 中的 Intent 是什么？
+
+* 什么是隐式 Intent ？
+
+* 什么是显式 Intent ？
+
+* 解释一下 AsyncTask 。
+
+* Android 中的广播是什么？
+
+* Android 的 局部通知管理器（LocalBroadcastManager） 是什么？
+
+* JobScheduler 是什么？
+
+* DDMS 是什么？你可以用它来做什么？
+
+* 解释一下什么是 support libary ，以及为什么要引入 support library ？
+
+* ContentProvider 是什么？它通常用来干什么？
+
+* 什么是 Data Binding ？
+
+* Android 的核心组件具体都有什么？
+
+* 什么是 ADB ？
+
+* 什么是 ANR ？如何避免发生 ANR ？
+
+* AndroidManifest.xml 是什么？
+
+* 解释一下 broadcast 和 intent 在 app 内传递消息的工作流程。
+
+* Bitmap 会占用较多内存，你是怎么处理这类问题的？
+
+* Android 应用有哪些不同的存储数据的方式？
+
+* 什么是 Dalvik 虚拟机？
+
+* AsyncTask 的生命周期和(它所属的) Activity 的生命周期有什么关系？这种关系可能会导致什么
+样的问题？ 如何避免这些问题发生？
+
+* Intent filter 是用来做什么的？
+
+* 什么是 Sticky Intent？
+
+* AIDL 是什么？列举一下通过 AIDL 创建被绑定的服务（bounded service）的步骤。
+
+* Android 的权限有多少个不同的保护等级？
+
+* 在转屏时 你怎么保存 Activity 的状态？
+
+* 相对布局和线性布局的区别。
+
+* 如何实现 XML 命名空间？
+
+* View.GONE 和 View.INVISIBLE 之间的区别？
+
+* 常规位图和 .9（nine-patch）图片之间有什么区别？
+
+* 谈谈位图池。
+
+* 在 Android 中如何避免内存泄漏？
+
+* Android 桌面的小部件是什么？
+
+* AAPT 是什么？
+
+* 你是如何在 Android 应用程序中发现内存泄漏的？
+
+* 你如何排查应用崩溃的原因？
+
+* 为什么你应该避免在主线程上运行非用户界面相关的代码？
+
+* 你是如何适配不同分辨率的手机的？
+
+* Doze 模式是什么？应用程序待机模式（App Standby）是什么？ 
+
+* 在 Android 中，你可以使用什么来进行后台操作?
+
+* ORM 是什么？它是如何工作的？
+
+* Loader 是什么？
+
+* NDK 是什么，为什么它是有用的？
+
+* 严格模式（StrictMode）是什么？
+
+* Lint 是什么？它的用途是什么？
+
+* SurfaceView 是什么？
+
+* ListView 和 RecyclerView 之间的区别是什么？
+
+* ViewHolder 模式是什么？为什么我们应该使用它？
+
+* PendingIntent 是什么？
+
+* 你能手动调用垃圾回收吗？
+
+* 周期地更新页面的最好方式是什么？
+
+* 有哪些类型的广播？
+
+* 你开发过组件吗？请描述一下。
+
+* 上下文（Context）是什么？怎么使用它？
+
+* 你知道什么是视图树(View Tree)吗？怎样优化它的深度？
+
+* onTrimMemory() 方法是什么？
+
+* Android 应用可以使用多进程吗？怎样使用？
+
+* 内存溢出（OutOfMemory）是怎么发生的？
+
+* 文本样式接口（Spannable）是什么？
+
+* 过度绘制（overdraw）是什么？
+
+* 渲染脚本（renderscript）是什么？
+
+* Dalvik 虚拟机模式和 ART（Android Runtime）虚拟机模式的区别。
+
+* FlatBuffers 和 JSON 的区别。
+
+* Android 的注释是什么？
+
+* 描述一下约束布局（Constraint Layout）。
+
+* 阐述一下 Android 中的 HashMap , ArrayMap 和 SparseArray 。
+
+* 阐述一下 Looper, Handler 和 HandlerThread 。
+
+* 如何降低 Android 应用的耗电量？
+
+* SnapHelper 是什么？
+
+* 在 Android 中怎么处理多点触控？
 
 ### 贡献者
 
