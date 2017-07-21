@@ -17,7 +17,7 @@
 
 ### Java 核心
 
-- Explain OOP Concept.
+* Explain OOP Concept.
   - Object-Oriented Programming is a methodology to design a program using classes, objects, 
     [inheritance](https://en.wikipedia.org/wiki/Inheritance_(object-oriented_programming)),
     [polymorphism](https://en.wikipedia.org/wiki/Polymorphism_(computer_science)),
@@ -26,7 +26,7 @@
 * 抽象类和接口的区别？[链接](https://arjun-sna.github.io/java/2017/02/02/abstractvsinterface/)
     - 抽象类是一个可同时包含具体方法和抽象方法(方法未被实现)的类。抽象方法必须被该抽象类的子类实现。抽象类是可以继承的。
     - 接口像是描述类的一张蓝图或者说是类的一种契约，它包含了许多空方法，这代表着它的所有的子类都应该拥有共同点。它的子类应该提供这些空方法的具体实现。一       个类需要用```implements```来实现接口，接口可以用```extends```来继承其他接口。
-- What is serialization? How do you implement it?
+* What is serialization? How do you implement it?
   - Serialization is the process of converting an object into a stream of bytes in order to store 
     an object into memory so that it can be recreated at a later time while still keeping the 
     objects original state and data. In Java there are two methods of doing this, one is by 
@@ -36,20 +36,20 @@
     tends to create a lot of temporary objects which may cause garbage collection to occur more often.
 * 什么是单例？
   - 单例模式指的是一个类只能被初始化一次，即只有一个实例。[单例模式限定一个类只能拥有一个实例。这在系统中只需要一个实例来和其他模块协调工作时是很实用的。单例普遍使用在只需要一个或是限制一定数量实例的系统中。](https://en.wikipedia.org/wiki/Singleton_pattern)
-- What are anonymous classes?
+* What are anonymous classes?
 * 对字符串进行```==```和```equals()```操作时有什么区别？
 * ```hashCode()```和```equals()```何时使用？
-- What are these `final`, `finally` and `finalize`?
-- What is memory leak and how does Java handle it?
-- What is garbage collector? How it works?
+* What are these `final`, `finally` and `finalize`?
+* What is memory leak and how does Java handle it?
+* What is garbage collector? How it works?
   -All objects are allocated on the heap area managed by the JVM. 
   As long as an object is being referenced, the JVM considers it  alive. 
   Once an object is no longer referenced and therefore is not reachable by the application code,
   the garbage collector removes it and reclaims the unused memory.
-- `Arrays` vs `ArrayLists`.
-- `HashSet` vs `TreeSet`.
-- Typecast in Java.
-- 方法重载和重写的区别
+* `Arrays` vs `ArrayLists`.
+* `HashSet` vs `TreeSet`.
+* Typecast in Java.
+* 方法重载和重写的区别
     <p align="center">
         <img alt="Overloading and Overriding" src="https://github.com/stormzhang/android-interview-questions-cn/blob/master/assets/overloading-vs-overriding.png">
     </p>
@@ -68,33 +68,33 @@
 
     - 方法重载时参数列表必须不同，方法重写时参数列表必须相同。
 
-- 什么是访问修饰符？它们能做什么？
-- 接口可以继承另一个接口吗？
-- Java 中 `static` 关键字是什么意思？
-- Java 中静态方法可以被重写吗？
-- 什么是多态？什么是继承？
-- `Integer` 和 `int` 之间的区别
-- Do objects get passed by reference or value in Java? Elaborate on that.
-- What is a ThreadPoolExecutor? [Link](https://blog.mindorks.com/threadpoolexecutor-in-android-8e9d22330ee3)
-- What the difference between local, instance and class variables?
-- What is reflection? [Link](http://tutorials.jenkov.com/java-reflection/index.html)
-- What are strong, soft and weak references in Java?
+* 什么是访问修饰符？它们能做什么？
+* 接口可以继承另一个接口吗？
+* Java 中 `static` 关键字是什么意思？
+* Java 中静态方法可以被重写吗？
+* 什么是多态？什么是继承？
+* `Integer` 和 `int` 之间的区别
+* Do objects get passed by reference or value in Java? Elaborate on that.
+* What is a ThreadPoolExecutor? [Link](https://blog.mindorks.com/threadpoolexecutor-in-android-8e9d22330ee3)
+* What the difference between local, instance and class variables?
+* What is reflection? [Link](http://tutorials.jenkov.com/java-reflection/index.html)
+* What are strong, soft and weak references in Java?
 * 什么是依赖注入？能说几个依赖注入的库么？你使用过哪些？
 * 关键字```synchronized```的作用是什么？
 * 为什么说```String```不可变的？
 * 修饰符```transient```和```volatile```的作用是什么？
 * ```finalize()```方法的作用是什么？
-- How does the `try{}finally{}` works?
-- What is the difference between instantiation and initialization of an object?
-- When is a `static` block run?
-- Explain Generics in Java?
-- Difference between `StringBuffer` and `StringBuilder`?
-- `StringBuilder` 是怎么避免不可变字符串分配的问题？
-- 什么是自动装箱和拆箱？
-- 枚举和迭代器有什么区别？
-- Java 中 _fail-fast_ 和 _fail-safe_ 的区别？
-- 什么是 Java 优先级队列？
-- 什么是设计模式？[链接](https://github.com/iluwatar/java-design-patterns)
+* How does the `try{}finally{}` works?
+* What is the difference between instantiation and initialization of an object?
+* When is a `static` block run?
+* Explain Generics in Java?
+* Difference between `StringBuffer` and `StringBuilder`?
+* `StringBuilder` 是怎么避免不可变字符串分配的问题？
+* 什么是自动装箱和拆箱？
+* 枚举和迭代器有什么区别？
+* Java 中 _fail-fast_ 和 _fail-safe_ 的区别？
+* 什么是 Java 优先级队列？
+* 什么是设计模式？[链接](https://github.com/iluwatar/java-design-patterns)
 
 
 ### License
