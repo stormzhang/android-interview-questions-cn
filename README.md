@@ -35,7 +35,7 @@
     10x faster then Serializable because Serializable uses reflection which is a slow process and 
     tends to create a lot of temporary objects which may cause garbage collection to occur more often.
 * 什么是单例？
-    - 单例模式指的是一个类只能被初始化一次，即只有一个实例。[单例模式限定一个类只能拥有一个实例。这在系统中只需要一个实例来和其他模块协调工作时是很实用       的。单例普遍使用在只需要一个或是限制一定数量实例的系统中。](https://en.wikipedia.org/wiki/Singleton_pattern)
+  - 单例模式指的是一个类只能被初始化一次，即只有一个实例。[单例模式限定一个类只能拥有一个实例。这在系统中只需要一个实例来和其他模块协调工作时是很实用的。单例普遍使用在只需要一个或是限制一定数量实例的系统中。](https://en.wikipedia.org/wiki/Singleton_pattern)
 - What are anonymous classes?
 * 对字符串进行```==```和```equals()```操作时有什么区别？
 * ```hashCode()```和```equals()```何时使用？
