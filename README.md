@@ -11,14 +11,8 @@
  * [架构](#架构)
  * [设计问题](#设计问题)
  * [工具和技能](#工具和技能)
- * [Android 测试驱动开发](#Android测试驱动开发)
+ * [Android 测试驱动开发](#android-test-driven-development)
  * [其他](#others)
-
-
-### Android测试驱动开发
-
-* adsfa
-* adf
 
 
 ### 架构
@@ -48,7 +42,7 @@
 * Git. [链接](https://github.com/git-tips/tips)
 * RxJava. [链接](https://blog.mindorks.com/a-complete-guide-to-learn-rxjava-b55c0cea3631)
 * Dagger 2. [链接](https://medium.com/p/a-complete-guide-to-learn-dagger-2-b4c7a570d99c)
-* Android Development Useful Tools. [链接](https://blog.mindorks.com/android-development-useful-tools-fd73283e82e3)
+* Android 开发实用工具。 [链接](https://blog.mindorks.com/android-development-useful-tools-fd73283e82e3)
 * Firebase. [链接](https://firebase.google.com/)
 
 
