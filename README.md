@@ -57,32 +57,31 @@
 - `Arrays` vs `ArrayLists`.
 - `HashSet` vs `TreeSet`.
 - Typecast in Java.
-- Difference between method overloading and overriding.
-  <p align="center">
-  <img alt="Overloading and Overriding" src="https://github.com/codeshef/android-interview-questions/blob/master/assets/overloading-vs-overriding.png">
-  </p>
+- 方法重载和重写的区别
+    <p align="center">
+        <img alt="Overloading and Overriding" src="https://github.com/stormzhang/android-interview-questions-cn/blob/master/assets/overloading-vs-overriding.png">
+    </p>
 
-Overloading happens at compile-time while Overriding happens at runtime: The binding of overloaded method call to its definition has happens at compile-time however binding of overridden method call to its definition happens at runtime.
+    - 重载发生在编译时，重写发生在运行时。重载方法调用与其定义的绑定发生在编译时，但是重写方法调用与其定义的绑定在运行时发生。
 
-Static methods can be overloaded which means a class can have more than one static method of same name. Static methods cannot be overridden, even if you declare a same static method in child class it has nothing to do with the same method of parent class.
+    - 静态方法可以重载，意味着一个类可以有多个同名的静态方法。静态方法不能被重写，即使在子类中声明了一个相同的静态方法，它与父类的相同方法无关。
 
-The most basic difference is that overloading is being done in the same class while for overriding base and child classes are required. Overriding is all about giving a specific implementation to the inherited method of parent class.
+    - 最基本的区别是重载是在同一个类中完成的，重写父类需要有子类。重写是给父类的继承方法一个具体的实现。
 
-Static binding is being used for overloaded methods and dynamic binding is being used for overridden/overriding methods.
-Performance: Overloading gives better performance compared to overriding. The reason is that the binding of overridden methods is being done at runtime.
+    - 静态绑定用于方法重载，动态绑定用于方法重写。性能：重载比重写更有效率，原因是方法重写的绑定是在运行时完成的。
 
-Private and final methods can be overloaded but they cannot be overridden. It means a class can have more than one private/final methods of same name but a child class cannot override the private/final methods of their base class.
+    - 私有方法和用 `final` 修饰的方法可以重载但不可重写。这意味着一个类可以有多个同名的 `private/final` 方法，子类不能重写父类的 `private/final` 方法。
 
-Return type of method does not matter in case of method overloading, it can be same or different. However in case of method overriding the overriding method can have more specific return type (refer this).
+    - 方法重载的情况下不关心返回值类型， 它可以相同，也可以不同。但是方法重写的情况下可以有多个具体的返回值类型。
 
-Argument list should be different while doing method overloading. Argument list should be same in method Overriding.
+    - 方法重载时参数列表必须不同，方法重写时参数列表必须相同。
 
-- What are the access modifiers you know? What does each one do?
-- Can an Interface extend another Interface?
-- What does the `static` word mean in Java?
-- Can a `static` method be overridden in Java?
-- What is Polymorphism? What about Inheritance?
-- What is the difference between an Integer and int?
+- 什么是访问修饰符？它们能做什么？
+- 接口可以继承另一个接口吗？
+- Java 中 `static` 关键字是什么意思？
+- Java 中静态方法可以被重写吗？
+- 什么是多态？什么是继承？
+- `Integer` 和 `int` 之间的区别
 - Do objects get passed by reference or value in Java? Elaborate on that.
 - What is a ThreadPoolExecutor? [Link](https://blog.mindorks.com/threadpoolexecutor-in-android-8e9d22330ee3)
 - What the difference between local, instance and class variables?
@@ -98,12 +97,12 @@ Argument list should be different while doing method overloading. Argument list 
 - When is a `static` block run?
 - Explain Generics in Java?
 - Difference between `StringBuffer` and `StringBuilder`?
-- How is a `StringBuilder` implemented to avoid the immutable string allocation problem?
-- What is Autoboxing and Unboxing?
-- What’s the difference between an Enumeration and an Iterator?
-- What is the difference between fail-fast and fail safe in Java?
-- What is Java priority queue?
-- What are the design patterns? [Link](https://github.com/iluwatar/java-design-patterns)
+- `StringBuilder` 是怎么避免不可变字符串分配的问题？
+- 什么是自动装箱和拆箱？
+- 枚举和迭代器有什么区别？
+- Java 中 _fail-fast_ 和 _fail-safe_ 的区别？
+- 什么是 Java 优先级队列？
+- 什么是设计模式？[链接](https://github.com/iluwatar/java-design-patterns)
 
 
 ### License
