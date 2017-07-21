@@ -78,7 +78,7 @@
 * 什么是 ThreadPoolExecutor？ [Link](https://blog.mindorks.com/threadpoolexecutor-in-android-8e9d22330ee3)
 * 本地变量、实例变量以及类变量之间的区别？
 * 什么是反射？ [Link](http://tutorials.jenkov.com/java-reflection/index.html)
-* 在 Java 中什么是强引用、软引用和弱引用？
+* 在 Java 中什么是强引用、软引用、弱引用以及虚引用？
 * 什么是依赖注入？能说几个依赖注入的库么？你使用过哪些？
 * 关键字```synchronized```的作用是什么？
 * 为什么说```String```不可变的？
