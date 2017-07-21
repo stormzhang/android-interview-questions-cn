@@ -106,9 +106,8 @@ Argument list should be different while doing method overloading. Argument list 
 - What are the design patterns? [Link](https://github.com/iluwatar/java-design-patterns)
 
 
-* ​
-
 ### License
+
 ```
    Copyright (C) 2017 stormzhang
 
