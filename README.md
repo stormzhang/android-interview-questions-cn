@@ -1,3 +1,9 @@
+<p align="center">
+<img alt="AndroidInterviewQuestions" src="https://raw.githubusercontent.com/stormzhang/android-interview-questions/master/assets/android-interview-questions.png">
+</p>
+
+# Android 面试指南
+
 ### 关于
 
 受 [android-interview-questions](https://github.com/MindorksOpenSource/android-interview-questions) 项目启发，这里想发挥众多 Android 中国开发者的力量，整理一份高质量、范围全的 Android 面试指南，旨在帮助更多的 Android 开发者提升技术，找到工作。
