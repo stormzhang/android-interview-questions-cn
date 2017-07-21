@@ -23,13 +23,9 @@
     [polymorphism](https://en.wikipedia.org/wiki/Polymorphism_(computer_science)),
     [abstraction](https://en.wikipedia.org/wiki/Abstraction_(software_engineering)), and
     [encapsulation](https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)).
-- Differences between abstract classes and interfaces? [link](https://arjun-sna.github.io/java/2017/02/02/abstractvsinterface/)
-  - An abstract class, is a class that contains both concrete and abstract methods 
-    (methods without implementations). An abstract method must be implemented by the abstract class
-     sub-classes. Abstract classes are extended.
-  - An interface is like a blueprint/contract of a class. It contains empty methods that 
-    represent what all of its subclasses should have in common. The subclasses provide the 
-    implementation for each of these methods. Interfaces are implemented.
+* 抽象类和接口的区别？[链接](https://arjun-sna.github.io/java/2017/02/02/abstractvsinterface/)
+    - 抽象类是一个可同时包含具体方法和抽象方法(方法未被实现)的类。抽象方法必须被该抽象类的子类实现。抽象类是可以继承的。
+    - 接口像是描述类的一张蓝图或者说是类的一种契约，它包含了许多空方法，这代表着它的所有的子类都应该拥有共同点。它的子类应该提供这些空方法的具体实现。一       个类需要用```implements```来实现接口，接口可以用```extends```来继承其他接口。
 - What is serialization? How do you implement it?
   - Serialization is the process of converting an object into a stream of bytes in order to store 
     an object into memory so that it can be recreated at a later time while still keeping the 
@@ -38,15 +34,11 @@
     in Android. Parcelable was created to be more efficient then Serializable, and performs about 
     10x faster then Serializable because Serializable uses reflection which is a slow process and 
     tends to create a lot of temporary objects which may cause garbage collection to occur more often.
-- What is Singleton class?
-  - A singleton is a class that can only be instantiated once.[This singleton pattern restricts 
-    the instantiation of a class to one object. This is useful when exactly one object is needed 
-    to coordinate actions across the system. The concept is sometimes generalized to systems 
-    that operate more efficiently when only one object exists, or that restrict the instantiation 
-    to a certain number of objects.](https://en.wikipedia.org/wiki/Singleton_pattern)
+* 什么是单例？
+  - 单例模式指的是一个类只能被初始化一次，即只有一个实例。[单例模式限定一个类只能拥有一个实例。这在系统中只需要一个实例来和其他模块协调工作时是很实用的。单例普遍使用在只需要一个或是限制一定数量实例的系统中。](https://en.wikipedia.org/wiki/Singleton_pattern)
 - What are anonymous classes?
-- What is the difference between using `==` and `.equals` on a string?
-- What is the `hashCode()` and `equals()` used for?
+* 对字符串进行```==```和```equals()```操作时有什么区别？
+* ```hashCode()```和```equals()```何时使用？
 - What are these `final`, `finally` and `finalize`?
 - What is memory leak and how does Java handle it?
 - What is garbage collector? How it works?
@@ -88,11 +80,11 @@ Argument list should be different while doing method overloading. Argument list 
 - What the difference between local, instance and class variables?
 - What is reflection? [Link](http://tutorials.jenkov.com/java-reflection/index.html)
 - What are strong, soft and weak references in Java?
-- What is dependency injection? Can you name few libraries? Have you used any?
-- What does the keyword `synchronized` mean?
-- What does it means to say that a `String` is immutable?
-- What are `transient` and `volatile` modifiers?
-- What is the `finalize()` method?
+* 什么是依赖注入？能说几个依赖注入的库么？你使用过哪些？
+* 关键字```synchronized```的作用是什么？
+* 为什么说```String```不可变的？
+* 修饰符```transient```和```volatile```的作用是什么？
+* ```finalize()```方法的作用是什么？
 - How does the `try{}finally{}` works?
 - What is the difference between instantiation and initialization of an object?
 - When is a `static` block run?
