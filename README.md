@@ -1,5 +1,5 @@
 <p align="center">
-<img alt="AndroidInterviewQuestions" src="https://raw.githubusercontent.com/stormzhang/android-interview-questions/master/assets/android-interview-questions.png">
+<img alt="AndroidInterviewQuestions" src="https://github.com/stormzhang/android-interview-questions-cn/blob/master/assets/android-interview-questions.png?raw=true">
 </p>
 
 # Android 面试指南
