@@ -20,7 +20,7 @@
 #### 14 - 20
 * 方法重载和重写的区别
     <p align="center">
-        <img alt="Overloading and Overriding" src="https://github.com/codeshef/android-interview-questions/blob/master/assets/overloading-vs-overriding.png">
+        <img alt="Overloading and Overriding" src="https://github.com/stormzhang/android-interview-questions-cn/blob/master/assets/overloading-vs-overriding.png">
     </p>
 
     重载发生在编译时，重写发生在运行时。重载方法调用与其定义的绑定发生在编译时，但是重写方法调用与其定义的绑定在运行时发生。
@@ -40,19 +40,19 @@
 #### 36 - 41    
 * 什么是访问修饰符？它们能做什么？
 * 接口可以继承另一个接口吗？
-* Java 中 static 关键字有什么含义？
+* Java 中 static 关键字是什么意思？
 * Java 中静态方法可以被重写吗？
 * 什么是多态？什么是继承？
 * Integer 和 int 之间的区别
 
 
 
-* StringBuilder 是怎么实现避免不可变字符串重复分配的问题
-* 什么是自动装箱和拆箱
-* 枚举（Enumeration）和迭代器（Iterator）的区别？
-* Java 中快速失败和安全失败的区别？
+* StringBuilder 是怎么避免不可变字符串分配的问题？
+* 什么是自动装箱和拆箱？
+* 枚举和迭代器有什么区别？
+* Java 中 fail-fast 和 fail-safe 的区别？
 * 什么是 Java 优先级队列？
-* 什么是设计模式？
+* 什么是设计模式？[链接](https://github.com/iluwatar/java-design-patterns)
 
 ### License
 ```
