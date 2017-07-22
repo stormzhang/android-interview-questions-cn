@@ -7,7 +7,7 @@
 ## Contents
  * [数据结构和算法](#数据结构与算法)
  * [Java 核心](#core-java)
- * [Android 核心](#Android-核心)
+ * [Android 核心](#android-核心)
  * [架构](#架构)
  * [设计问题](#设计问题)
  * [工具和技能](#工具和技能)
