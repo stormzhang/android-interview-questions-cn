@@ -21,7 +21,7 @@
 ## Contents
  * [数据结构和算法](#数据结构与算法)
  * [Java 核心](#core-java)
- * [Android 核心](#jump)
+ * [Android 核心](#jump)<span id = "jump">Android 核心</span>
  * [架构](#architecture)
  * [设计问题](#design-problem)
  * [工具和技能](#tools-and-technologies)
@@ -94,7 +94,7 @@
 * 深度优先搜索
 * 贪心算法
 
-### <span id = "jump">Android 核心</span>
+### Android 核心
 
 * 阐述一下 Activity 的生命周期。
 
