@@ -20,7 +20,7 @@
 
 ## Contents
 * [数据结构和算法](#数据结构与算法)
-* [Java 核心](#core-java)
+* [Java 核心](#java-核心)
 * [Android 核心](#android-核心)
 * [架构](#architecture)
 * [设计问题](#design-problem)
@@ -152,7 +152,9 @@
 
 - Java 中的类型转换。
 
-- 方法重载和重写的区别<p align="center">
+- 方法重载和重写的区别
+
+  <p align="center">
 
   ```
   <img alt="Overloading and Overriding" src="https://github.com/stormzhang/android-interview-questions-cn/blob/master/assets/overloading-vs-overriding.png">
