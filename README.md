@@ -211,7 +211,7 @@
 
 * 你是如何适配不同分辨率的手机的？
 
-* 如何理解 Doze 模式。如何理解应用程序待机模式（App Standby）。 
+* 如何理解 Doze 模式。如何理解应用程序待机模式（App Standby）。
 
 * 在 Android 中，你可以使用什么来进行后台操作?
 
@@ -279,7 +279,7 @@
 
 感谢这些无私的贡献者，排名不分先后。
 
-[mengxn](https://github.com/mengxn)
+[mengxn](https://github.com/mengxn)、[innovatorCL](https://github.com/innovatorCL)、[SmartNJ](https://github.com/SmartNJ)、[Zhiw](https://github.com/Zhiw)、[innovatorCL](https://github.com/innovatorCL)
 
 ### License
 ```
