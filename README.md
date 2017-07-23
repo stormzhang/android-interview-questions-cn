@@ -7,18 +7,13 @@
 ## Contents
  * [数据结构和算法](#数据结构与算法)
  * [Java 核心](#core-java)
- * [Android 核心](#android-核心)
+ * [Android 核心](#core-android)
  * [架构](#架构)
  * [设计问题](#设计问题)
  * [工具和技能](#工具和技能)
- * [Android 测试驱动开发](#android-test-driven-development)
- * [其他](#others)
+ * [Android 测试驱动开发](#android-测试驱动开发)
+ * [其他](#其他)
 
-
-### Android 核心
-
-* adf
-* sdfa
 
 ### 数据结构与算法
 
@@ -116,6 +111,38 @@
 * Dagger 2. [链接](https://medium.com/p/a-complete-guide-to-learn-dagger-2-b4c7a570d99c)
 * Android 开发实用工具。 [链接](https://blog.mindorks.com/android-development-useful-tools-fd73283e82e3)
 * Firebase. [链接](https://firebase.google.com/)
+
+
+### Android 测试驱动开发
+
+* Espresso 是什么？ [链接](https://developer.android.com/training/testing/ui-testing/espresso-testing.html)
+* Robolectric 是什么？ [链接](http://robolectric.org/)
+* UI-Automator 是什么？ [链接](https://developer.android.com/training/testing/ui-testing/uiautomator-testing.html)
+* 请解释一下单元测试。 
+* 请解释一下设备化测试。
+* 你是否做过单元测试或者自动测试？
+* 为什么要使用 Mockito？ [链接](http://site.mockito.org/)
+* 请描述一下 JUnit 测试。
+
+
+### 其他
+
+* 描述一下 REST APIs 如何工作 ？
+* 描述一下 SQLite 。
+* 描述一下 数据库 。
+* 项目管理工具 - trello ，basecamp ，kanban ，jira ，asana 。
+* 关于构建系统 - gradle , ant , buck 。
+* APK 逆向工程 。
+* 混淆器用于什么 ？
+* 什么是混淆？ 用于什么？ 如何压缩 ？
+* 如何构建你的发布版本的 APP ？
+* 如何面向特定用户群体更新应用程序版本 ？
+* 可以识别卸载我们的应用程序的用户吗 ？
+* 缩小 APK 的体积 。[链接](https://blog.mindorks.com/how-to-reduce-apk-size-in-android-2f3713d2d662)
+* Android 开发最佳实践 。[链接](https://blog.mindorks.com/android-development-best-practices-83c94b027fd3)
+* Android 代码风格和指南 。[链接](https://blog.mindorks.com/android-code-style-and-guidelines-d5f80453d5c7)
+* 你尝试使用过 Kotlin 吗 ？[链接](https://blog.mindorks.com/why-you-must-try-kotlin-for-android-development-e14d00c8084b)
+* 开发 Android 应用程序时应该连续测量哪些指标 ？[链接](https://blog.mindorks.com/android-app-performance-metrics-a1176334186e)
 
 
 ### License
