@@ -108,7 +108,6 @@
 
 * 贪心算法
 
-<<<<<<< HEAD
 ### Java 核心
 
 - 解释一下 OOP 的概念
@@ -226,8 +225,6 @@
 
 - 什么是设计模式？[[Link](https://github.com/iluwatar/java-design-patterns)](https://github.com/iluwatar/java-design-patterns)
 
-=======
->>>>>>> stormzhang/master
 ### Android 核心
 
 * 阐述一下 Activity 的生命周期。
