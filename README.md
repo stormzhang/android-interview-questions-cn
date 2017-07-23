@@ -33,14 +33,14 @@
 > 数据结构与算法问题的难度完全取决于你所申请的公司
 
 * 数组
-    - A Array consists of a group of same data type. It storage on continuous memory space, use index could find address of the element. Array include one dimensional array and multi-dimensional array,one dimensional array is the simplest data structures, and also most commonly used. 
+    - 数组是由一组相同的数据类型组成。它存储在连续的内存空间内，使用索引可以找到元素的地址。数组包括一维数组和多维数组,一维数组是最简单的数据结构,也是最常用的。
 
-        | Algorithm | Average | Worst Case |
-        |:---------:|:-------:|:----------:|
-        | Space     | O(n)    | O(n)       |    
-        | Search    | O(n)    | O(n)       |
-        | Insert    | O(n)    | O(n)       |
-        | Delete    | O(n)    | O(n)       |
+        | 算法 | 平均 | 最坏 |
+        |:-------------:|:-----:|:-----:|
+        | 空间（Space）  | O(n)  | O(n)  |    
+        | 查找（Search） | O(n)  | O(n)  |
+        | 插入（Insert） | O(n)  | O(n)  |
+        | 删除（Delete） | O(n)  | O(n)  |
 
 * 链表
    - 链表看起来更像树，而不是数组，它使用一组结点来表示一个序列。每一个结点都包含数据和一个指针。在链表中，结点中的数据可以为任意类型，而指针则是指向下一结点的引用。链表包含一个头结点和一个尾结点。头结点是链表中的第一个结点，尾结点是最后一个结点。链表不是一个循环数据结构，所以尾结点没有指向头结点的指针，指针为空。一些基础方法的时间复杂度如下：
