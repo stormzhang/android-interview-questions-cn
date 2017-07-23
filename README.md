@@ -33,6 +33,15 @@
 > 数据结构与算法问题的难度完全取决于你所申请的公司
 
 * 数组
+    - A Array consists of a group of same data type. It storage on continuous memory space, use index could find address of the element. Array include one dimensional array and multi-dimensional array,one dimensional array is the simplest data structures, and also most commonly used. 
+
+        | Algorithm | Average | Worst Case |
+        |:---------:|:-------:|:----------:|
+        | Space     | O(n)    | O(n)       |    
+        | Search    | O(n)    | O(n)       |
+        | Insert    | O(n)    | O(n)       |
+        | Delete    | O(n)    | O(n)       |
+
 * 链表
    - 链表看起来更像树，而不是数组，它使用一组结点来表示一个序列。每一个结点都包含数据和一个指针。在链表中，结点中的数据可以为任意类型，而指针则是指向下一结点的引用。链表包含一个头结点和一个尾结点。头结点是链表中的第一个结点，尾结点是最后一个结点。链表不是一个循环数据结构，所以尾结点没有指向头结点的指针，指针为空。一些基础方法的时间复杂度如下：
 
@@ -42,7 +51,18 @@
         | 查找 (Search) | O(n)    | O(n)     |
         | 插入 (Insert) | O(1)    | O(1)     |
         | 删除 (Delete) | O(1)    | O(1)     |
+
 * 双向链表
+   - A DoublyLinkedList firstly is a LinkedList, but there have two pointer in each node, previous pointer reference to previous node and next pointer reference to next node.  DoublyLinkedList also has a head node, head node's next pointer  reference to first node.The last node's next pointer reference  to NULL, but if last node's next pointer reference to first node called Circular DoublyLinkedList.DoublyLinkedList is very convenient to find previous and next node from each node. 
+  
+       ![DoublyLinkedList](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Doubly-linked-list.svg/610px-Doubly-linked-list.svg.png)
+            
+        | Algorithm | Average | Worst Case |
+        |:---------:|:-------:|:----------:|
+        | Space     | O(n)    | O(n)       |
+        | Search    | O(n)    | O(n)       |
+        | Insert    | O(1)    | O(1)       |
+        | Delete    | O(1)    | O(1)       |
 * 栈
     - 栈是一个有着“后进先出”特性的基础数据结构，这就意味着最后一个入栈的元素，也是第一个出栈的。栈就像是一堆书，想要得到书堆中的第一本书（最下面一本），必须把其他的书都先拿走。向栈中添加一个元素的操作被称为 Push（入栈），删除一个元素的操作被称为 Pop（出栈），查看且不删除最后一个入栈的元素的操作被称为 Top 。[实现栈的常用方法是使用链表（LinkedList），也可以使用不允许空值的 StackArray（使用数组实现），还有允许空值的 Vector](https://en.wikibooks.org/wiki/Data_Structures/Stacks_and_Queues#Performance_Analysis)
 
