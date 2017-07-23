@@ -19,6 +19,7 @@
 3. 第三步是补充与完善，原项目虽然列了不少领域，但是总归有些遗漏的，比如 Android 安全、插件化、Kotlin 等等，第三步是找在某一领域研究比较深的同学加入进来，对一些领域进行补充、完善，甚至会推出一些专题等；
 
 ## Contents
+<<<<<<< HEAD
 * [数据结构和算法](#数据结构与算法)
 * [Java 核心](#java-核心)
 * [Android 核心](#android-核心)
@@ -27,6 +28,17 @@
 * [工具和技能](#tools-and-technologies)
 * [Android 测试驱动开发](#android-test-driven-development)
 * [其他](#others)
+=======
+ * [数据结构和算法](#数据结构与算法)
+ * [Java 核心](#core-java)
+ * [Android 核心](#android-核心)
+ * [架构](#architecture)
+ * [设计问题](#design-problem)
+ * [工具和技能](#tools-and-technologies)
+ * [Android 测试驱动开发](#android-test-driven-development)
+ * [其他](#others)
+
+>>>>>>> stormzhang/master
 ### 数据结构与算法
 
 > 关于数据结构与算法，问题的难度完全取决于你所申请的公司
@@ -107,6 +119,7 @@
 
 * 贪心算法
 
+<<<<<<< HEAD
 ### Java 核心
 
 - 解释一下 OOP 的概念
@@ -224,6 +237,8 @@
 
 - 什么是设计模式？[[Link](https://github.com/iluwatar/java-design-patterns)](https://github.com/iluwatar/java-design-patterns)
 
+=======
+>>>>>>> stormzhang/master
 ### Android 核心
 
 * 阐述一下 Activity 的生命周期。
@@ -305,7 +320,11 @@
 * 什么是 Dalvik 虚拟机？
 
 * AsyncTask 的生命周期和(它所属的) Activity 的生命周期有什么关系？这种关系可能会导致什么
+<<<<<<< HEAD
   样的问题？ 如何避免这些问题发生？
+=======
+样的问题？ 如何避免这些问题发生？
+>>>>>>> stormzhang/master
 
 * Intent filter 是用来做什么的？
 
