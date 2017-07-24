@@ -100,8 +100,8 @@
 
 * 谈谈 Android 的四大组件。
 
-* Service 与 IntentService 的区别。[Link](https://stackoverflow.com/a/15772151/5153275)	
-	
+* Service 与 IntentService 的区别。[Link](https://stackoverflow.com/a/15772151/5153275)		
+
 * Android 应用的结构是什么？
 
 * Android 应用中如何保存数据。
@@ -163,14 +163,13 @@
 * 什么是 ADB ？
 
 * 什么是 ANR ？如何避免发生 ANR ？
+
 	- ANR(Application Not Responding),应用程序无响应。Android应用程序通常是运行在一个单独的线程里。这意味着你的应用程序所做的事情如果在主线程里占用了太长的时间的话，就会引发ANR，因为你的应用程序并没有给自己机会来处理输入事件或者Intent广播。默认情况下，在android中Activity的最长执行时间是5秒，BroadcastReceiver的最长执行时间则是10秒。
 	- 如何避免ANR
 		* 避免在主线程上进行复杂耗时的操作，比如说进行大量计算/发送接收网络数据/操作数据库/读写文件等。这个可以通过使用AsyncTask或者使用多线程来实现。
 		* broadCastReceiver 要进行比较耗时操作的的时候，可以在onReceive()方法中启动一个Service来处理。
 		* 在设计代码的阶段避免出现同步/死锁或者错误处理不恰当等情况。
 	- 当程序出现ANR时，系统会在/data/anr目录下创建一个traces.txt文件，通过分析文件就可以找到ANR的原因了。
-
-
 
 * AndroidManifest.xml 是什么？
 
@@ -188,10 +187,10 @@
 * Intent filter 是用来做什么的？
 
 * 什么是 Sticky Intent？[Link](http://www.androidinterview.com/what-is-a-sticky-intent/)
+
 	- 粘性意图(Sticky Intent)也是一种意图，它允许在函数和服务之间的通信。sendStickyBroadcast()发送粘性广播，广播完成后发送的意图保持不变，这样其他人就可以通过registerReceiver(BroadcastReceiver, IntentFilter)的返回值快速地检索该数据。在其他方面，它的行为与sendBroadcast(Intent)相同。
 	- 一个通过操作系统发送的粘性广播的例子是ACTION_BATTARY_CHANGED。当您为该操作调用 registerReceiver()时，即使使用一个空的BroadcastReceiver，你也会得到最后一次广播的意图。因此，你可以用它来寻找电池的状态，而不必为电池的未来状态变化进行注册。
 
-	
 * 什么是 AIDL ？列举一下通过 AIDL 创建被绑定的服务（bounded service）的步骤。
 
 * Android 的权限有多少个不同的保护等级？
@@ -203,6 +202,7 @@
 * 如何实现 XML 命名空间？
 
 * View.GONE 和 View.INVISIBLE 之间的区别。
+
    - View.GONE和View.INVISIBLE都可以是View不显示，但是Gone让view不占用位置，而View.INVISIBLE占用位置。
 
 * Bitmap 和 .9（nine-patch）图片之间有什么区别？
