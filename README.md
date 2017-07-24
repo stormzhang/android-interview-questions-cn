@@ -157,9 +157,7 @@
 
   <p align="center">
 
-  ```
   <img alt="Overloading and Overriding" src="https://github.com/stormzhang/android-interview-questions-cn/blob/master/assets/overloading-vs-overriding.png">
-  ```
 
   </p>
 
