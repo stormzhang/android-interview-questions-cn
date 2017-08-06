@@ -58,7 +58,7 @@
    - 一个双向链表首先是一个链表，但是在每个结点中有两个指针，前驱指针指向前驱结点，后继指针指向后继结点。双向链表也有一个头结点，头结点的后继指针指向第一个结点。最后一个结点的后继指针指向空，但是如果最后一个结点的后继指针指向第一个结点，这时称这个链表为双向循环链表。双向循环链表能非常方便地从每个结点查找它的前驱结点和后继结点。
 
        ![双向链表](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Doubly-linked-list.svg/610px-Doubly-linked-list.svg.png)
-            
+
         | 算法          | 平均 | 最坏  |
         |:------------:|:----:|:----:|
         | 空间 (Space)  | O(n) | O(n) |
@@ -119,6 +119,35 @@
 * 二叉搜索树
 
 * 排序算法
+    - <h2>冒泡排序</h2>
+    <p>冒泡排序是最简单的排序之一了，其大体思想就是通过与相邻元素的比较和交换来把小的数交换到最前面。这个过程类似于水泡向上升一样，因此而得名。举个栗子，对5,3,8,6,4这个无序序列进行冒泡排序。首先从后向前冒泡，4和6比较，把4交换到前面，序列变成5,3,8,4,6。同理4和8交换，变成5,3,4,8,6,3和4无需交换。5和3交换，变成3,5,4,8,6,3.这样一次冒泡就完了，把最小的数3排到最前面了。对剩下的序列依次冒泡就会得到一个有序序列。冒泡排序的时间复杂度为O(n^2)。</p>
+    <p>实现代码：</p>
+    <div>
+    <pre>
+    /**
+     *@Description:&lt;p&gt;冒泡排序算法实现&lt;/p&gt;
+     */
+    public class BubbleSort {
+
+        public static void bubbleSort(int[] arr) {
+            if(arr == null || arr.length == 0)
+                return ;
+            for(int i=0; i&lt;arr.length-1; i++) {
+                for(int j=arr.length-1; j&gt;i; j--) {
+                    if(arr[j] &lt; arr[j-1]) {
+                        swap(arr, j-1, j);
+                    }
+                }
+            }
+        }
+
+        public static void swap(int[] arr, int i, int j) {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+    }</pre>
+    </div>
 
 * 哈希表与哈希图
 
