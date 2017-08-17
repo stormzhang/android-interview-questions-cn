@@ -293,7 +293,9 @@
 
     Arrays：一个包含许多和操纵数组有关方法的类，比如排序和查找，它继承自Object类。
     
-    ArraysList：是一个实现了List接口的类，它可以实现数组的大小可变，方便地增加和删除元素
+    ArraysList：是一个容器，它可以实现数组的大小可变，方便地增加和删除元素。它实现了List接口的类。
+    
+    详细的笔记在：http://note.youdao.com/noteshare?id=659562b6beba34649d769d09cd2e0533
 
 - 比较 `HashSet` 和 `TreeSet`。
 
