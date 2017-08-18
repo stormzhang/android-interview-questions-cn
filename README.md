@@ -303,6 +303,7 @@
     
     HashSet是基于Hash表实现的，其中的数据是无序的，允许放入null值。
     
+    详细的笔记在：http://note.youdao.com/noteshare?id=4a3e44e90105d9906eb308317bc816bb
 
 - Java 中的类型转换。
 
