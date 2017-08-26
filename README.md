@@ -415,7 +415,13 @@
 
 - 什么是 ThreadPoolExecutor？ [Link](https://blog.mindorks.com/threadpoolexecutor-in-android-8e9d22330ee3)
 
+  中文翻译请参考这里：http://note.youdao.com/noteshare?id=84c9bc5c8b01defcb9db9ca963bf6f67
+
 - 本地变量、实例变量以及类变量之间的区别？
+
+  本地变量就是局部变量，它在方法或者代码块里被声明并使用，其内存中的位置是栈里，没有默认初始化值，生命周期很短。
+  实例变量是没有被static修饰的成员变量，它属于一个类的一个实例。每次new一个实例，这样的变量也同时new一遍，其位置在堆区中，有默认初始化的值，生命周期和它所在的实例一样长。
+  类变量，又称静态变量，它是被static修饰的成员变量，它属于一个类，被所有实例共享。每次new一个实例，这样的变量并不会被new一遍，其内存位置在方法区内。可以通过类名直接访问。有默认的初始化值，生命周期很长。
 
 - 什么是反射？ [Link](http://tutorials.jenkov.com/java-reflection/index.html)
 
