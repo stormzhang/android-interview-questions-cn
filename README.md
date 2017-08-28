@@ -420,12 +420,50 @@
 - 本地变量、实例变量以及类变量之间的区别？
 
   本地变量就是局部变量，它在方法或者代码块里被声明并使用，其内存中的位置是栈里，没有默认初始化值，生命周期很短。
-  实例变量是没有被static修饰的成员变量，它属于一个类的一个实例。每次new一个实例，这样的变量也同时new一遍，其位置在堆区中，有默认初始化的值，生命周期和它所在的实例一样长。
-  类变量，又称静态变量，它是被static修饰的成员变量，它属于一个类，被所有实例共享。每次new一个实例，这样的变量并不会被new一遍，其内存位置在方法区内。可以通过类名直接访问。有默认的初始化值，生命周期很长。
+  
+  实例变量是没有被static修饰的成员变量，它属于一个类的一个实例。每次new一个实例，这样的变量也同时new一遍，其位置在堆区中，有默认初始化的值，生命周期和它所在的实例一样长。
+  
+  类变量，又称静态变量，它是被static修饰的成员变量，它属于一个类，被所有实例共享。每次new一个实例，这样的变量并不会被new一遍，其内存位置在方法区内。可以通过类名直接访问。有默认的初始化值，生命周期很长。
 
 - 什么是反射？ [Link](http://tutorials.jenkov.com/java-reflection/index.html)
 
 - 在 Java 中什么是强引用、软引用、弱引用以及虚引用？
+
+  强引用：不会被GC轻易清理，只要引用存在，垃圾回收器永远不会回收。
+  
+  `Object obj = new Object();`
+  
+  软引用： 非必须引用，内存溢出之前进行回收
+  ```
+  Object obj = new Object();
+  SoftReference<Object> sf = new SoftReference<Object>(obj);
+  obj = null;
+  sf.get();//有时候会返回null
+  ```
+  
+  弱引用： 第二次垃圾回收时回收
+  
+  ```
+  Object obj = new Object();
+  WeakReference<Object> wf = new WeakReference<Object>(obj);
+  obj = null;
+  wf.get();//有时候会返回null
+  wf.isEnQueued();//返回是否被垃圾回收器标记为即将回收的垃圾
+  ```
+  
+  虚引用： 垃圾回收时回收，无法通过引用取到对象值
+  
+  ```
+  Object obj = new Object();
+  PhantomReference<Object> pf = new PhantomReference<Object>(obj);
+  obj=null;
+  pf.get();//永远返回null
+  pf.isEnQueued();//返回是否从内存中已经删除
+  ```
+
+  具体笔记可参考：http://note.youdao.com/noteshare?id=d52d8dd97e8dc162ddc90ff72a5c6001
+  
+  以及：http://note.youdao.com/noteshare?id=a9b2cebfbeb8fb33093ca318db58b389
 
 - 什么是依赖注入？能说几个依赖注入的库么？你使用过哪些？
 
