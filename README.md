@@ -538,11 +538,47 @@
 
   StringBuffer、StringBuilder和String一样，也用来代表字符串。String类是不可变类，任何对String的改变都 会引发新的String对象的生成；StringBuffer和StringBuilder则是可变类
   
-  先说一下集合为例，HashTable是线程安全的，很多方法都是synchronized方法，而HashMap不是线程安全的，但其在单线程程序中的性能比HashTable要高。StringBuffer和StringBuilder类的区别也是如此，他们的原理和操作基本相同，区别在于StringBufferd支持并发操作，线性安全的，适 合多线程中使用。StringBuilder不支持并发操作，线性不安全的，不适合多线程中使用。新引入的StringBuilder类不是线程安全的，但其在单线程中的性能比StringBuffer高。
+  先说一下，以集合为例，HashTable是线程安全的，很多方法都是synchronized方法，而HashMap不是线程安全的，但其在单线程程序中的性能比HashTable要高。StringBuffer和StringBuilder类的区别也是如此，他们的原理和操作基本相同，区别在于StringBufferd支持并发操作，线性安全的，适 合多线程中使用。StringBuilder不支持并发操作，线性不安全的，不适合多线程中使用。新引入的StringBuilder类不是线程安全的，但其在单线程中的性能比StringBuffer高。
 
 - `StringBuilder` 是怎么避免不可变字符串分配的问题？
 
 - 什么是自动装箱和拆箱？
+
+
+  简单一点说，装箱就是  自动将基本数据类型转换为包装器类型；拆箱就是  自动将包装器类型转换为基本数据类型
+
+  自动装箱（autoboxing）:
+  
+  一般来说，这是我们创建一个类的实例时，我们会这样：
+  
+  ```
+  MyClass a = new MyClass();
+  ```
+  
+  但是当我们新建一些支持自动装箱和拆箱的数据类型的时侯（比如Integer，基本数据类型的包装类），我们可以这样：
+  
+  ```
+  Integer i = 100;
+  ```
+  
+  执行这句语句，将会被编译器执行为：
+  
+  ```
+  Integer i = Integer.valueOf(100);
+  ```
+  
+  这就是自动装箱
+  
+  自动拆箱（unboxing）:
+  
+  将对象中的基本数据从对象中自动取出
+  
+  比如：
+  
+  ```
+  Integer i = 10;//autoboxing
+  int c = i;//unboxing
+  ```
 
 - 枚举和迭代器有什么区别？
 
