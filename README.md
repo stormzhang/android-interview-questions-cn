@@ -45,7 +45,7 @@
 
         | 算法 | 平均 | 最坏 |
         |:-------------:|:-----:|:-----:|
-        | 空间（Space）  | O(n)  | O(n)  |    
+        | 空间（Space）  | O(n)  | O(n)  |
         | 查找（Search） | O(n)  | O(n)  |
         | 插入（Insert） | O(n)  | O(n)  |
         | 删除（Delete） | O(n)  | O(n)  |
@@ -64,13 +64,13 @@
    - 一个双向链表首先是一个链表，但是在每个结点中有两个指针，前驱指针指向前驱结点，后继指针指向后继结点。双向链表也有一个头结点，头结点的后继指针指向第一个结点。最后一个结点的后继指针指向空，但是如果最后一个结点的后继指针指向第一个结点，这时称这个链表为双向循环链表。双向循环链表能非常方便地从每个结点查找它的前驱结点和后继结点。
 
        ![双向链表](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Doubly-linked-list.svg/610px-Doubly-linked-list.svg.png)
-            
-        | 算法          | 平均 | 最坏  |
-        |:------------:|:----:|:----:|
-        | 空间 (Space)  | O(n) | O(n) |
-        | 查找 (Search) | O(n) | O(n) |
-        | 插入 (Insert) | O(1) | O(1) |
-        | 删除 (Delete) | O(1) | O(1) |
+
+       | 算法          | 平均 | 最坏  |
+       |:------------:|:----:|:----:|
+       | 空间 (Space)  | O(n) | O(n) |
+       | 查找 (Search) | O(n) | O(n) |
+       | 插入 (Insert) | O(1) | O(1) |
+       | 删除 (Delete) | O(1) | O(1) |
 
 * 栈
     - 栈是一个有着「后进先出」特性的基础数据结构，这就意味着最后一个入栈的元素，也是第一个出栈的。栈就像是一堆书，想要得到书堆中的第一本书（最下面一本），必须把其他的书都先拿走。向栈中添加一个元素的操作被称为 Push（入栈），删除一个元素的操作被称为 Pop（出栈），查看且不删除最后一个入栈的元素的操作被称为 Top 。[实现栈的常用方法是使用链表（LinkedList），也可以使用不允许空值的 StackArray（使用数组实现），还有允许空值的 Vector](https://en.wikibooks.org/wiki/Data_Structures/Stacks_and_Queues#Performance_Analysis)
@@ -125,6 +125,204 @@
 * 二叉搜索树
 
 * 排序算法
+    - 冒泡排序
+
+      冒泡排序是最简单的排序之一了，其大体思想就是通过与相邻元素的比较和交换来把小的数交换到最前面。这个过程类似于水泡向上升一样，因此而得名。举个栗子，对5,3,8,6,4这个无序序列进行冒泡排序。首先从后向前冒泡，4和6比较，把4交换到前面，序列变成5,3,8,4,6。同理4和8交换，变成5,3,4,8,6,3和4无需交换。5和3交换，变成3,5,4,8,6,3.这样一次冒泡就完了，把最小的数3排到最前面了。对剩下的序列依次冒泡就会得到一个有序序列。冒泡排序的时间复杂度为O(n^2)。
+
+      ```
+      实现代码：
+      /**
+       *@Description：冒泡排序算法实现
+       */
+      public class BubbleSort {
+      
+        public static void bubbleSort(int[] arr) {
+            if(arr == null || arr.length == 0)
+                return ;
+            for(int i=0; i&lt;arr.length-1; i++) {
+                for(int j=arr.length-1; j&gt;i; j--) {
+                    if(arr[j] &lt; arr[j-1]) {
+                        swap(arr, j-1, j);
+                    }
+                }
+            }
+        }
+      
+        public static void swap(int[] arr, int i, int j) {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+      }
+      ```
+    - 选择排序
+
+      选择排序的思想其实和冒泡排序有点类似，都是在一次排序后把最小的元素放到最前面。但是过程不同，冒泡排序是通过相邻的比较和交换。而选择排序是通过对整体的选择。举个栗子，对5,3,8,6,4这个无序序列进行简单选择排序，首先要选择5以外的最小数来和5交换，也就是选择3和5交换，一次排序后就变成了3,5,8,6,4.对剩下的序列一次进行选择和交换，最终就会得到一个有序序列。其实选择排序可以看成冒泡排序的优化，因为其目的相同，只是选择排序只有在确定了最小数的前提下才进行交换，大大减少了交换的次数。选择排序的时间复杂度为O(n^2)
+
+      ```
+      实现代码：
+      /**
+      *@Description:简单选择排序算法的实现
+      */
+      public class SelectSort {
+
+          public static void selectSort(int[] arr) {
+              if(arr == null || arr.length == 0)
+                  return ;
+              int minIndex = 0;  
+              for(int i=0; i<arr.length-1; i++) { //只需要比较n-1次
+                  minIndex = i;
+                  for(int j=i+1; j<arr.length; j++) { //从i+1开始比较，因为minIndex默认为i了，i就没必要比了。
+                      if(arr[j] < arr[minIndex]) {
+                          minIndex = j;
+                      }
+                  }
+
+                  if(minIndex != i) { //如果minIndex不为i，说明找到了更小的值，交换之。
+                      swap(arr, i, minIndex);
+                  }
+              }
+
+          }
+
+          public static void swap(int[] arr, int i, int j) {
+              int temp = arr[i];
+              arr[i] = arr[j];
+              arr[j] = temp;
+          }
+
+      }
+      ```
+    - 插入排序
+    
+      插入排序不是通过交换位置而是通过比较找到合适的位置插入元素来达到排序的目的的。相信大家都有过打扑克牌的经历，特别是牌数较大的。在分牌时可能要整理自己的牌，牌多的时候怎么整理呢？就是拿到一张牌，找到一个合适的位置插入。这个原理其实和插入排序是一样的。举个栗子，对5,3,8,6,4这个无序序列进行简单插入排序，首先假设第一个数的位置时正确的，想一下在拿到第一张牌的时候，没必要整理。然后3要插到5前面，把5后移一位，变成3,5,8,6,4.想一下整理牌的时候应该也是这样吧。然后8不用动，6插在8前面，8后移一位，4插在5前面，从5开始都向后移一位。注意在插入一个数的时候要保证这个数前面的数已经有序。简单插入排序的时间复杂度也是O(n^2)。
+
+      ```
+      实现代码：
+      /**
+      *@Description:简单插入排序算法实现
+      */
+      public class InsertSort {
+
+          public static void insertSort(int[] arr) {
+              if(arr == null || arr.length == 0)
+                  return ;
+
+              for(int i=1; i<arr.length; i++) { //假设第一个数位置时正确的；要往后移，必须要假设第一个。
+
+                  int j = i;
+                  int target = arr[i]; //待插入的
+
+                  //后移
+                  while(j > 0 && target < arr[j-1]) {
+                      arr[j] = arr[j-1];
+                      j --;
+                  }
+
+                  //插入 
+                  arr[j] = target;
+              }
+
+          }
+
+      }
+
+      ```
+    - 快速排序
+
+      快速排序一听名字就觉得很高端，在实际应用当中快速排序确实也是表现最好的排序算法。冒泡排序虽然高端，但其实其思想是来自冒泡排序，冒泡排序是通过相邻元素的比较和交换把最小的冒泡到最顶端，而快速排序是比较和交换小数和大数，这样一来不仅把小数冒泡到上面同时也把大数沉到下面。
+
+      ```
+      实现代码：
+      /**
+      *@Description:实现快速排序算法
+      */
+      public class QuickSort {
+          //一次划分
+          public static int partition(int[] arr, int left, int right) {
+              int pivotKey = arr[left];
+              int pivotPointer = left;
+
+              while(left < right) {
+                  while(left < right && arr[right] >= pivotKey)
+                      right --;
+                  while(left < right && arr[left] <= pivotKey)
+                      left ++;
+                  swap(arr, left, right); //把大的交换到右边，把小的交换到左边。
+              }
+              swap(arr, pivotPointer, left); //最后把pivot交换到中间
+              return left;
+          }
+
+          public static void quickSort(int[] arr, int left, int right) {
+              if(left >= right)
+                  return ;
+              int pivotPos = partition(arr, left, right);
+              quickSort(arr, left, pivotPos-1);
+              quickSort(arr, pivotPos+1, right);
+          }
+
+          public static void sort(int[] arr) {
+              if(arr == null || arr.length == 0)
+                  return ;
+              quickSort(arr, 0, arr.length-1);
+          }
+
+          public static void swap(int[] arr, int left, int right) {
+              int temp = arr[left];
+              arr[left] = arr[right];
+              arr[right] = temp;
+          }
+
+      }
+      ```
+    - 希尔排序
+      
+      希尔排序是插入排序的一种高效率的实现，也叫缩小增量排序。简单的插入排序中，如果待排序列是正序时，时间复杂度是O(n)，如果序列是基本有序的，使用直接插入排序效率就非常高。希尔排序就利用了这个特点。基本思想是：先将整个待排记录序列分割成为若干子序列分别进行直接插入排序，待整个序列中的记录基本有序时再对全体记录进行一次直接插入排序。
+
+      ```
+      实现代码：
+      /**
+      *@Description:希尔排序算法实现
+      */
+      public class ShellSort {
+
+          /**
+          * 希尔排序的一趟插入
+          * @param arr 待排数组
+          * @param d 增量
+          */
+          public static void shellInsert(int[] arr, int d) {
+              for(int i=d; i<arr.length; i++) {
+                  int j = i - d;
+                  int temp = arr[i];    //记录要插入的数据  
+                  while (j>=0 && arr[j]>temp) {  //从后向前，找到比其小的数的位置   
+                      arr[j+d] = arr[j];    //向后挪动  
+                      j -= d;  
+                  }  
+
+                  if (j != i - d)    //存在比其小的数 
+                      arr[j+d] = temp;
+
+              }
+          }
+
+          public static void shellSort(int[] arr) {
+              if(arr == null || arr.length == 0)
+                  return ;
+              int d = arr.length / 2;
+              while(d >= 1) {
+                  shellInsert(arr, d);
+                  d /= 2;
+              }
+          }
+
+      }
+      
+      ```
+
+    
+      
 
 * 哈希表与哈希图
 
@@ -134,39 +332,35 @@
 
 * 贪心算法
 
-所谓贪心算法(贪婪算法)，是在求解一个问题时，作出当前最好的选择，而不考虑大局。也就是说，这种算法的每一种实现，只是在作出一个某种方面上的局部最优解。
+    所谓贪心算法(贪婪算法)，是在求解一个问题时，作出当前最好的选择，而不考虑大局。也就是说，这种算法的每一种实现，只是在作出一个某种方面上的局部最优解。
 
-我们可以说贪心算法是「短视的」， 「不可恢复」的
+    我们可以说贪心算法是「短视的」， 「不可恢复」的
 
-此算法没有固定框架，只有每个人贪心策略的选择，而导致的不同姿态的代码实现。
-
-
-来自wikipedia：
-
-> 贪心法，又称貪心演算法、貪婪演算法、或稱貪婪法，是一种在每一步选择中都采取在当前状态下最好或最优（即最有利）的选择，从而希望导致结果是最好或最优的算法。[1]比如在旅行推销员问题中，如果旅行员每次都选择最近的城市，那这就是一种贪心算法。
->     
-> 贪心算法在有最优子结构的问题中尤为有效。最优子结构的意思是局部最优解能决定全局最优解。简单地说，问题能够分解成子问题来解决，子问题的最优解能递推到最终问题的最优解。
->     
-> 贪心算法与动态规划的不同在于它对每个子问题的解决方案都做出选择，不能回退。动态规划则会保存以前的运算结果，并根据以前的结果对当前进行选择，有回退功能。
->     
-> 贪心法可以解决一些最优化问题，如：求图中的最小生成树、求哈夫曼编码……对于其他问题，贪心法一般不能得到我们所要求的答案。一旦一个问题可以通过贪心法来解决，那么贪心法一般是解决这个问题的最好办法。由于贪心法的高效性以及其所求得的答案比较接近最优结果，贪心法也可以用作辅助算法或者直接解决一些要求结果不特别精确的问题。
-> 
+    此算法没有固定框架，只有每个人贪心策略的选择，而导致的不同姿态的代码实现。
 
 
+    来自wikipedia：
 
-
+    > 贪心法，又称貪心演算法、貪婪演算法、或稱貪婪法，是一种在每一步选择中都采取在当前状态下最好或最优（即最有利）的选择，从而希望导致结果是最好或最优的算法。[1]比如在旅行推销员问题中，如果旅行员每次都选择最近的城市，那这就是一种贪心算法。
+    >     
+    > 贪心算法在有最优子结构的问题中尤为有效。最优子结构的意思是局部最优解能决定全局最优解。简单地说，问题能够分解成子问题来解决，子问题的最优解能递推到最终问题的最优解。
+    >     
+    > 贪心算法与动态规划的不同在于它对每个子问题的解决方案都做出选择，不能回退。动态规划则会保存以前的运算结果，并根据以前的结果对当前进行选择，有回退功能。
+    >     
+    > 贪心法可以解决一些最优化问题，如：求图中的最小生成树、求哈夫曼编码……对于其他问题，贪心法一般不能得到我们所要求的答案。一旦一个问题可以通过贪心法来解决，那么贪心法一般是解决这个问题的最好办法。由于贪心法的高效性以及其所求得的答案比较接近最优结果，贪心法也可以用作辅助算法或者直接解决一些要求结果不特别精确的问题。
+    > 
 
 ### Java 核心
 
 - 解释一下 OOP 的概念
   - 面向对象编程是使用类，对象，[继承性](https://zh.wikipedia.org/wiki/%E7%BB%A7%E6%89%BF_(%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6))，[多态性](https://zh.wikipedia.org/wiki/%E5%A4%9A%E5%9E%8B_(%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6))，[封装性](https://zh.wikipedia.org/wiki/%E5%B0%81%E8%A3%9D_(%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88))和[抽象](https://zh.wikipedia.org/wiki/%E6%8A%BD%E8%B1%A1%E5%8C%96_(%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8))的一种程序设计方法。。
- 
+
  1. 抽象
- 
+
  > 在面向对象的概念中，所有对象都是由类来描述，但是反过来，并不是所有类都是用来描述对象的。如果一个类中没有包含足够信息来描绘一个具体的对象，这样的类就是抽象类。
- 
+
  2. 继承
- 
+
  >继承（英语：inheritance）是面向对象软件技术当中的一个概念。如果一个类别A“继承自”另一个类别B，就把这个A称为“B的子类别”，而把B称为“A的父类别”也可以称“B是A的超类”。继承可以使得子类别具有父类别的各种属性和方法，而不需要再次编写相同的代码。在令子类别继承父类别的同时，可以重新定义某些属性，并重写某些方法，即覆盖父类别的原有属性和方法，使其获得与父类别不同的功能。另外，为子类别追加新的属性和方法也是常见的做法。 一般静态的面向对象编程语言，继承属于静态的，意即在子类别的行为在编译期就已经决定，无法在执行期扩充。
 有些编程语言支持多重继承，即一个子类别可以同时有多个父类别，比如C++编程语言；而在有些编程语言中，一个子类别只能继承自一个父类别，比如Java编程语言，这时可以利用接口来实现与多重继承相似的效果。
 现今面向对象程式设计技巧中，继承并非以继承类别的“行为”为主，而是继承类别的“型态”，使得元件的型态一致。另外在设计模式中提到一个守则，“多用合成，少用继承”，此守则也是用来处理继承无法在执行期动态扩充行为的遗憾。
@@ -176,14 +370,14 @@
  > 从字面上理解就是包装的意思，是指利用抽象数据类型，将数据和关于数据的操作封装起来，使其成为一个不可分割的独立实体。数据将会被保护在抽象数据类型的内部，仅能够通过暴露在表面的操作（public方法，比如setter和getter）来与这个对象进行交流和交互。用户不知道对象的内部细节，但是通过该对象提供的接口来访问对象。其好处是：减少耦合，方便地在未来修改调整自己，更加有把握地（精确地）控制成员，隐藏信息，实现细节。
 
  4. 多态
- 
+
  >使用相同的消息，使得类作出不同的反应（继承为我们使用多态打下了基础）。Java实现多态有三个必要条件：继承、重写、向上转型。
- 
- 
+
+
 - 面向对象的三个基本元素和五个原则
 
-1. 三个基本元素：
-    
+ 1. 三个基本元素：
+  
     封装： 封装是把过程和数据包围起来，对数据的访问只能通过已定义的界面。面向对象计算始于这个基本概念，即现实世界可以被描绘成一系列完全自治、封装的对象，这些对象通过一个受保护的接口访问其他对象。
         
     继承： 继承是一种联结类的层次模型，并且允许和鼓励类的重用，它提供了一种明确表述共性的方法。对象的一个新类可以从现有的类中派生，这个过程称为类继承。新类继承了原始类的特性，新类称为原始类的派生类（子类），而原始类称为新类的基类（父类）。派生类可以从它的基类那里继承方法和实例变量，并且类可以修改或增加新的方法使之更适合特殊的需要。 
@@ -191,17 +385,17 @@
     多态： 多态性是指允许不同类的对象对同一消息作出 响应。多态性包括参数化多态性和包含多态性。多态性语言具有灵活、抽象、行为共享、代码共享的优势，很好的解决了应用程序函数同名问题。C++中的虚函数的作用主要是实现了多态的机制。关于多态，简而言之就是用父类型别的指针指向其子类的实例，然后通过父类的指针调用实际子类的成员函数。这种技术可以让父类的指针有“多种形态”，这是一种泛型技术。所谓泛型技术，说白了就是试图使用不变的代码来实现可变的算法。比如：模板技术，RTTI技术，虚函数技术，要么是试图做到在编译时决议，要么试图做到运行时决议。
 
 
-2.  五个基本原则：
+ 2.  五个基本原则：
 
-    单一职责原则（Single-Resposibility Principle）：一个类，最好只做一件事，只有一个引起它的变化。单一职责原则可以看做是低耦合、高内聚在面向对象原则上的引申，将职责定义为引起变化的原因，以提高内聚性来减少引起变化的原因。
+     单一职责原则（Single-Resposibility Principle）：一个类，最好只做一件事，只有一个引起它的变化。单一职责原则可以看做是低耦合、高内聚在面向对象原则上的引申，将职责定义为引起变化的原因，以提高内聚性来减少引起变化的原因。
 
-    开放封闭原则（Open-Closed principle）：软件实体应该是可扩展的，而不可修改的。也就是，对扩展开放，对修改封闭的。
+     开放封闭原则（Open-Closed principle）：软件实体应该是可扩展的，而不可修改的。也就是，对扩展开放，对修改封闭的。
 
-    Liskov替换原则（Liskov-Substituion Principle）：子类必须能够替换其基类。这一思想体现为对继承机制的约束规范，只有子类能够替换基类时，才能保证系统在运行期内识别子类，这是保证继承复用的基础。
+     Liskov替换原则（Liskov-Substituion Principle）：子类必须能够替换其基类。这一思想体现为对继承机制的约束规范，只有子类能够替换基类时，才能保证系统在运行期内识别子类，这是保证继承复用的基础。
 
-    依赖倒置原则（Dependecy-Inversion Principle）：依赖于抽象。具体而言就是高层模块不依赖于底层模块，二者都同依赖于抽象；抽象不依赖于具体，具体依赖于抽象。
+     依赖倒置原则（Dependecy-Inversion Principle）：依赖于抽象。具体而言就是高层模块不依赖于底层模块，二者都同依赖于抽象；抽象不依赖于具体，具体依赖于抽象。
 
-    接口隔离原则（Interface-Segregation Principle）：使用多个小的专门的接口，而不要使用一个大的总接口。
+     接口隔离原则（Interface-Segregation Principle）：使用多个小的专门的接口，而不要使用一个大的总接口。
 
 - 抽象类和接口的区别？[Link](https://arjun-sna.github.io/java/2017/02/02/abstractvsinterface/)
 
@@ -241,7 +435,7 @@
 
 
 - 对字符串进行 `==` 和 `equals()` 操作时有什么区别？
-    
+  
     `==` 比较两个字符串的地址，初学者很经常拿来比较其内容，将会导致出现不等的情况。
     `equals()`是String这个类重写的一个方法，平常的类的`equals()`也仅仅是比较两个变量的地址，而String类的`equals()`重写后，将依次比较其串中的字符。
 
@@ -266,18 +460,18 @@
     3. finalize:finalize出现的原因在于： 我们一定需要进行清理动作。Java没有用于释放对象的，如同C++里的delete调用，的方法，而是使用垃圾回收器（GC）帮助我们释放空间。当垃圾回收器准备释放对象占用的存储空间的时候，将首先调用其finalize()方法。
 
 - 什么是内存泄露，Java 是如何处理它的？
-    
-    总的来说是：保留下来却永远不再使用的对象引用
-    它包括：
+  
+       总的来说是：保留下来却永远不再使用的对象引用
+       它包括：
     1. 静态集合类引起内存泄漏，
     2. 当集合里面的对象属性被修改后，再调用remove()方法时不起作用，
     3. 监听器，
     4. 各种连接
     5. 内部类和外部模块的引用
     6. 单例模式
-    详情可见：http://note.youdao.com/noteshare?id=376631d4640128dc55646c8e577cc3ab
     
-    而关于Java 如何处理它，我还不能给出准确答案，应该是使用各种检测泄漏的工具检测到之后，使用GC处理它们
+    详情可见：http://note.youdao.com/noteshare?id=376631d4640128dc55646c8e577cc3ab
+    而关于Java 如何处理它，我还不能给出准确答案，应该是使用各种检测泄漏的工具检测到之后，使用GC处理它们
 
 - 垃圾收集器是什么?它是如何工作的
 
@@ -293,37 +487,38 @@
 
     Arrays：一个包含许多和操纵数组有关方法的类，比如排序和查找，它继承自Object类。
     
-    ArraysList：是一个容器，它可以实现数组的大小可变，方便地增加和删除元素。它实现了List接口的类。
+    ArraysList：是一个容器，它可以实现数组的大小可变，方便地增加和删除元素。它实现了List接口的类。
     
-    详细的笔记在：http://note.youdao.com/noteshare?id=659562b6beba34649d769d09cd2e0533
+    详细的笔记在：http://note.youdao.com/noteshare?id=659562b6beba34649d769d09cd2e0533
 
 - 比较 `HashSet` 和 `TreeSet`。
-
-    TreeSet是基于二叉树实现的，其中的数据是自动排序好的。不允许放入null值。
     
-    HashSet是基于Hash表实现的，其中的数据是无序的，允许放入null值。
+    TreeSet是基于二叉树实现的，其中的数据是自动排序好的。不允许放入null值。
     
-    详细的笔记在：http://note.youdao.com/noteshare?id=4a3e44e90105d9906eb308317bc816bb
+    HashSet是基于Hash表实现的，其中的数据是无序的，允许放入null值。
+    
+    
+    详细的笔记在：http://note.youdao.com/noteshare?id=4a3e44e90105d9906eb308317bc816bb
 
 - Java 中的类型转换。
 
-    1. 基本数据的类型转换
-    
+       1. 基本数据的类型转换
+
     ![img](http://wx4.sinaimg.cn/mw690/005JrW9Kly1fip3s09u9jj30r908emxl.jpg)
-    在Java中，整数类型（byte/short/int/long）中，对于未声明数据类型的整形，其默认类型为int型。在浮点类型（float/double）中，对于未声明数据类型的浮点型，默认为double型。而当我们将一个数值范围较小的类型赋给一个数值范围较大的数值型变量，jvm在编译过程中会将此数值的类型进行自动提升。在数值类型的自动类型提升过程中，数值精度至少不应该降低（整型保持不变，float->double精度将变高）。而当我们需要将数值范围较大的数值类型赋给数值范围较小的数值类型变量时，我们需要手动地转换，称为强制类型转换。
-    
-    2.引用数据类型的类型转换
-    
-    由于继承和向上转型，子类向父类的转换是很自然的。但是当把父类转换为子类时，强制类型转换会在运行时检查父类的真实类型：如果引用的父类对象的真实身份是子类类型，只不过这个子类类型的对象经历了向上转型变成父类对象，这个时候我们再向下转回来子类，是可以的；而如果真的是父类的类型，就会抛出ClassCastException的异常。
-    
-    详细的笔记在：http://note.youdao.com/noteshare?id=7e85432e5d781ef8ad86ddabfc964885
+
+       在Java中，整数类型（byte/short/int/long）中，对于未声明数据类型的整形，其默认类型为int型。在浮点类型（float/double）中，对于未声明数据类型的浮点型，默认为double型。而当我们将一个数值范围较小的类型赋给一个数值范围较大的数值型变量，jvm在编译过程中会将此数值的类型进行自动提升。在数值类型的自动类型提升过程中，数值精度至少不应该降低（整型保持不变，float->double精度将变高）。而当我们需要将数值范围较大的数值类型赋给数值范围较小的数值类型变量时，我们需要手动地转换，称为强制类型转换。
+        
+       2.引用数据类型的类型转换
+        
+       由于继承和向上转型，子类向父类的转换是很自然的。但是当把父类转换为子类时，强制类型转换会在运行时检查父类的真实类型：如果引用的父类对象的真实身份是子类类型，只不过这个子类类型的对象经历了向上转型变成父类对象，这个时候我们再向下转回来子类，是可以的；而如果真的是父类的类型，就会抛出ClassCastException的异常。
+        
+       详细的笔记在：http://note.youdao.com/noteshare?id=7e85432e5d781ef8ad86ddabfc964885
 
 - 方法重载和重写的区别
 
   <p align="center">
 
   <img alt="Overloading and Overriding" src="https://github.com/stormzhang/android-interview-questions-cn/blob/master/assets/overloading-vs-overriding.png">
-
   </p>
 
   - 重载发生在编译时，重写发生在运行时。重载方法调用与其定义的绑定发生在编译时，但是重写方法调用与其定义的绑定在运行时发生。
@@ -350,15 +545,15 @@
 
 - Java 中 `static` 关键字是什么意思？
 
-  static是Java里的非访问修饰符，它可以用来创建类方法和类变量。
-  
-  当修饰一个变量的时候，此变量就成了独立于对象的静态变量，无论一个类实例化了多少个对象，这个类只有一份这个静态变量的拷贝，所以static修饰的变量，即静态变量，也被叫做类变量。一个局部变量不能被声明为static变量。
-  
-  当修饰一个方法的时候，此方法就成了独立于对象的静态方法，静态方法不能使用类的非静态变量，因为静态方法和静态变量先于非静态的其他成员初始化，静态方法先出来，然后才是非静态的，所以明白这个顺序很重要。静态方法从参数列表得到数据，然后计算这些数据。
+    static是Java里的非访问修饰符，它可以用来创建类方法和类变量。
+    
+    当修饰一个变量的时候，此变量就成了独立于对象的静态变量，无论一个类实例化了多少个对象，这个类只有一份这个静态变量的拷贝，所以static修饰的变量，即静态变量，也被叫做类变量。一个局部变量不能被声明为static变量。
+    
+    当修饰一个方法的时候，此方法就成了独立于对象的静态方法，静态方法不能使用类的非静态变量，因为静态方法和静态变量先于非静态的其他成员初始化，静态方法先出来，然后才是非静态的，所以明白这个顺序很重要。静态方法从参数列表得到数据，然后计算这些数据。
   
   >有些人认为static方法不是面向对象的，因为它们确实具有全局函数的语义；使用static方法时，由于不存在this，所以不是通过「向对象发送消息」的方式来完成的。当代码中出现很多static方法时，你应该反思自己的设计的，然而，static确有其用。
   
-  总结一下，当static：
+    总结一下，当static：
   
   1. 修饰方法时，此方法能够不用在初始化对象的前提下直接调用，即，可以直接通过类名.static方法（）这样来访问。
 
@@ -368,237 +563,248 @@
 
 - Java 中静态方法可以被重写吗？
 
-  严格来说，不存在静态方法的重写，当一个子类继承父类时，写同样的方法时，只是将父类的静态方法隐藏。
+    严格来说，不存在静态方法的重写，当一个子类继承父类时，写同样的方法时，只是将父类的静态方法隐藏。
 
-  [静态方法能否被重写]（http://xm-king.iteye.com/blog/745787）
+    [静态方法能否被重写]（http://xm-king.iteye.com/blog/745787）
 
-  *所谓静态，就是在运行时，虚拟机已经认定此方法属于哪个类。
-  专业术语有严格的含义,用语要准确."重写"只能适用于实例方法.不能用于静态方法.对于静态方法,只能隐藏.
-  静态方法的调用不需要实例化..  不实例化也就不能用多态了，也就没有所谓的父类引用指向子类实例.因为不能实例化 也就没有机会去指向子类的实例。所以也就不存在多态了。*
+    *所谓静态，就是在运行时，虚拟机已经认定此方法属于哪个类。
+    专业术语有严格的含义,用语要准确."重写"只能适用于实例方法.不能用于静态方法.对于静态方法,只能隐藏.
+    静态方法的调用不需要实例化..  不实例化也就不能用多态了，也就没有所谓的父类引用指向子类实例.因为不能实例化 也就没有机会去指向子类的实例。所以也就不存在多态了。*
 
 - 什么是多态？什么是继承？
 
   - 多态是：指允许不同类的对象对同一消息做出响应。即同一消息可以根据发送对象的不同而采用多种不同的行为方式。（发送消息就是函数调用）
     
   > 允许你将父对象设置成为一个或更多的他的子对象相等的技术，赋值之后，父对象就可以根据当前赋值给它的子对象的特性以不同的方式运作（摘自“Delphi4 编程技术内幕”）
-    
+  
   - 继承是：子类继承父类的特征和行为，使得子类具有父类的各种属性和方法。
 
 - `Integer` 和 `int` 之间的区别
 
   1. Integer是int提供的封装类，而int是Java的基本数据类型；
-  Integer默认值是null，而int默认值是0；
-  声明为Integer的变量需要实例化，而声明为int的变量不需要实例化；
-  Integer是对象，用一个引用指向这个对象，而int是基本类型，直接存储数值
+    Integer默认值是null，而int默认值是0；
+    声明为Integer的变量需要实例化，而声明为int的变量不需要实例化；
+    Integer是对象，用一个引用指向这个对象，而int是基本类型，直接存储数值
   2. 两个new 出来的Integer总是不一样的。当使用`==`时，发现其内存地址不同，所以进行`==`返回false
   3. 两个不是new出来的Integer，而是诸如Integer i = x，如果x的范围在-128～127，因为如下语句：
-  `Integer i5 = 127;//java在编译的时候,被翻译成-> Integer i5 = Integer.valueOf(127);`
-  调用了`Integer.valueOf ()`,  这会将127缓存，下次我们写：Integer i6 = 127;时，i6指向缓存中的同一个对象。所以此时i5==i6是true；
-  当x范围在-128～127之外，没有缓存存在，即使他们包裹的数值相等，他们也不能使用`==`的到true。
+  `Integer i5 = 127;//java在编译的时候,被翻译成-> Integer i5 = Integer.valueOf(127);`调用了`Integer.valueOf ()`,这会将127缓存，下次我们写：Integer i6 = 127;时，i6指向缓存中的同一个对象。所以此时i5==i6是true；当x范围在-128～127之外，没有缓存存在，即使他们包裹的数值相等，他们也不能使用`==`的到true。
   4. int和Integer的比较，无论Integer是否使用new，其值和将和平常的预料的一样:Integer自动拆箱，然后和int比较数值.这里就不会被内存地址的不同所影响，该相等时就相等。
 
 - Java 中的对象是否会以引用传递或者值传递？详细说明。
+    
+    Java中的对象总是以值传递的。
+  
+    ```
+    private void init(MyClass objVar) {
+        objVar = new MyClass();
+    }
+    public void test() {
+        MyClass obj = null;
+        init(obj);
+        //在调用init方法后，obj仍旧指向空
+        //这是因为，obj是值传递，而不是引用传递。
+    }
 
-  Java中的对象总是以值传递的。
-  ```
-  private void init(MyClass objVar) {
-    objVar = new MyClass();
-  }
-  public void test() {
-    MyClass obj = null;
-    init(obj);
-    //在调用init方法后，obj仍旧指向空
-    //这是因为，obj是值传递，而不是引用传递。
-  }
-
-  ```
+    ```
 
 - 什么是 ThreadPoolExecutor？ [Link](https://blog.mindorks.com/threadpoolexecutor-in-android-8e9d22330ee3)
-
-  中文翻译请参考这里：http://note.youdao.com/noteshare?id=84c9bc5c8b01defcb9db9ca963bf6f67
+    
+    中文翻译请参考这里：http://note.youdao.com/noteshare?id=84c9bc5c8b01defcb9db9ca963bf6f67
 
 - 本地变量、实例变量以及类变量之间的区别？
 
-  本地变量就是局部变量，它在方法或者代码块里被声明并使用，其内存中的位置是栈里，没有默认初始化值，生命周期很短。
-  
-  实例变量是没有被static修饰的成员变量，它属于一个类的一个实例。每次new一个实例，这样的变量也同时new一遍，其位置在堆区中，有默认初始化的值，生命周期和它所在的实例一样长。
-  
-  类变量，又称静态变量，它是被static修饰的成员变量，它属于一个类，被所有实例共享。每次new一个实例，这样的变量并不会被new一遍，其内存位置在方法区内。可以通过类名直接访问。有默认的初始化值，生命周期很长。
+    本地变量就是局部变量，它在方法或者代码块里被声明并使用，其内存中的位置是栈里，没有默认初始化值，生命周期很短。
+
+    实例变量是没有被static修饰的成员变量，它属于一个类的一个实例。每次new一个实例，这样的变量也同时new一遍，其位置在堆区中，有默认初始化的值，生命周期和它所在的实例一样长。
+
+    类变量，又称静态变量，它是被static修饰的成员变量，它属于一个类，被所有实例共享。每次new一个实例，这样的变量并不会被new一遍，其内存位置在方法区内。可以通过类名直接访问。有默认的初始化值，生命周期很长。
 
 - 什么是反射？ [Link](http://tutorials.jenkov.com/java-reflection/index.html)
 
 - 在 Java 中什么是强引用、软引用、弱引用以及虚引用？
+    
+    强引用：不会被GC轻易清理，只要引用存在，垃圾回收器永远不会回收。
 
-  强引用：不会被GC轻易清理，只要引用存在，垃圾回收器永远不会回收。
-  
-  `Object obj = new Object();`
-  
-  软引用： 非必须引用，内存溢出之前进行回收
-  ```
-  Object obj = new Object();
-  SoftReference<Object> sf = new SoftReference<Object>(obj);
-  obj = null;
-  sf.get();//有时候会返回null
-  ```
-  
-  弱引用： 第二次垃圾回收时回收
-  
-  ```
-  Object obj = new Object();
-  WeakReference<Object> wf = new WeakReference<Object>(obj);
-  obj = null;
-  wf.get();//有时候会返回null
-  wf.isEnQueued();//返回是否被垃圾回收器标记为即将回收的垃圾
-  ```
-  
-  虚引用： 垃圾回收时回收，无法通过引用取到对象值
-  
-  ```
-  Object obj = new Object();
-  PhantomReference<Object> pf = new PhantomReference<Object>(obj);
-  obj=null;
-  pf.get();//永远返回null
-  pf.isEnQueued();//返回是否从内存中已经删除
-  ```
+    ```
+    
+    Object obj = new Object();
+    
+    ```
 
-  具体笔记可参考：http://note.youdao.com/noteshare?id=d52d8dd97e8dc162ddc90ff72a5c6001
+     软引用： 非必须引用，内存溢出之前进行回收
   
-  以及：http://note.youdao.com/noteshare?id=a9b2cebfbeb8fb33093ca318db58b389
+    ```
+    
+    Object obj = new Object();
+    SoftReference<Object> sf = new SoftReference<Object>(obj);
+    obj = null;
+    sf.get();//有时候会返回null
+    
+    ```
+
+     弱引用： 第二次垃圾回收时回收
+
+    ``` 
+    
+        Object obj = new Object();
+        WeakReference<Object> wf = new WeakReference<Object>(obj);
+        obj = null;
+        wf.get();//有时候会返回null
+        wf.isEnQueued();//返回是否被垃圾回收器标记为即将回收的垃圾
+    
+    ```
+    
+
+    
+     虚引用： 垃圾回收时回收，无法通过引用取到对象值
+  
+    ```
+    
+    Object obj = new Object();
+    PhantomReference<Object> pf = new PhantomReference<Object>(obj);
+    obj=null;
+    pf.get();//永远返回null
+    pf.isEnQueued();//返回是否从内存中已经删除
+    
+    ```
+
+    具体笔记可参考：http://note.youdao.com/noteshare?id=d52d8dd97e8dc162ddc90ff72a5c6001
+    
+     以及：http://note.youdao.com/noteshare?id=a9b2cebfbeb8fb33093ca318db58b389
 
 - 什么是依赖注入？能说几个依赖注入的库么？你使用过哪些？
 
 - 关键字`synchronized`的作用是什么？
-
-  synchronized通过修饰一个方法或者代码块，从而产生一个同步对象锁，以及对应  的同步代码块。每当有线程要对该同步代码块进行访问时，线程就会首先尝试获取这个对  象的锁，并在成功获取到对象锁后，对这个同步代码块进行正常的访问。在同步代码块的   访问过程中，线程会一直持有这个对象锁，直到同步代码块访问完毕，然后才会释放。
+    
+    synchronized通过修饰一个方法或者代码块，从而产生一个同步对象锁，以及对应  的同步代码块。每当有线程要对该同步代码块进行访问时，线程就会首先尝试获取这个对  象的锁，并在成功获取到对象锁后，对这个同步代码块进行正常的访问。在同步代码块的   访问过程中，线程会一直持有这个对象锁，直到同步代码块访问完毕，然后才会释放。
    
-   在上述线程持有同步锁并进行同步代码块访问过程中，其它线程将无法获得该对象锁，也 无法访问该同步代码，这些线程都会被阻塞直到上述线程访问完毕
+    在上述线程持有同步锁并进行同步代码块访问过程中，其它线程将无法获得该对象锁，也 无法访问该同步代码，这些线程都会被阻塞直到上述线程访问完毕
 
 - 为什么说`String`不可变的？
 
   1. java.lang.String类型在实现时，其内部成员变量全部使用final来修饰，保证成员变量的引用值只能通过构造函数来修改；
   
   2. java.lang.String类型在实现时，在外部某个地方，可能修改一个String实例的内部存储值的函数实现中，在这个地方的调用返回时，一律构造新的String对象或者新的byte数组或者char数组，给赋值符号的左边变量（左值）；
-
-  详细请看：http://note.youdao.com/noteshare?id=747f5d269dd7e177153e4f099f095876
+  
+    详细请看：http://note.youdao.com/noteshare?id=747f5d269dd7e177153e4f099f095876
 
 - 修饰符`transient`和`volatile`的作用是什么？
 
  
   1. volatile
 
-  易式修饰符
+        易式修饰符
 
-  出现它的原因是，java的多线程中存在两个或多个线程时间间隔很短地访问共享成员变量（指被多个线程共享的变量），在每个线程自己的工作内存中，可能对这个变量进行修改，但是没有及时将工作内存中的变量（对原本的共享成员变量的一份拷贝）写回共享成员变量，此时，当另外一个线程进行读取时，将无法得到最新的此变量，导致进程的工作不能正确进行。
+        出现它的原因是，java的多线程中存在两个或多个线程时间间隔很短地访问共享成员变量（指被多个线程共享的变量），在每个线程自己的工作内存中，可能对这个变量进行修改，但是没有及时将工作内存中的变量（对原本的共享成员变量的一份拷贝）写回共享成员变量，此时，当另外一个线程进行读取时，将无法得到最新的此变量，导致进程的工作不能正确进行。
 
-  于是出现了volatile，带有volatile修饰的变量，就是当其在某个线程自己的工作内存中发生改变时，会被强制地，写回公共成员变量所在的公共内存处。
+        于是出现了volatile，带有volatile修饰的变量，就是当其在某个线程自己的工作内存中发生改变时，会被强制地，写回公共成员变量所在的公共内存处。
 
-  如此便保证了，所有线程对这个变量的访问都是能得到此变量最新状态的访问。
+        如此便保证了，所有线程对这个变量的访问都是能得到此变量最新状态的访问。
 
   2. transient
 
-  transient是一个类型修饰符，仅仅能用来修饰字段（变量）。在此字段所在的对象进行序列化的时候，这个字段不会被序列化。
+        transient是一个类型修饰符，仅仅能用来修饰字段（变量）。在此字段所在的对象进行序列化的时候，这个字段不会被序列化。
 
-  其他没有transient修饰的变量将会被序列化，然后进行传输，或者存储到本地磁盘，transient变量就在这个过程里丢失了
+        其他没有transient修饰的变量将会被序列化，然后进行传输，或者存储到本地磁盘，transient变量就在这个过程里丢失了
 
 
 - `finalize()`方法的作用是什么？
-
-  它是继承自Object类的方法，当垃圾回收器认为一个对象没有用的时候，会调用此对象的finalize（）方法，释放对象在堆中占用的内存。在finalize里，我们告诉了垃圾回收器应该做的事情。
+    
+    它是继承自Object类的方法，当垃圾回收器认为一个对象没有用的时候，会调用此对象的finalize（）方法，释放对象在堆中占用的内存。在finalize里，我们告诉了垃圾回收器应该做的事情。
 
 - 异常捕获中的 `try{}finally{}` 块儿是如何工作的?
-
-  进行完try后，在try的return之前，总是会执行finally语句，进行善后处理。之后再进行return。
+    
+    进行完try后，在try的return之前，总是会执行finally语句，进行善后处理。之后再进行return。
 
 - 对象的实例化和初始化之间的区别是什么?
 
-  实例化可以理解为做出一个蛋糕：
+    实例化可以理解为做出一个蛋糕：
   
-  `Cake ca = new Cake();`
-  
-  初始化可以理解为，每个蛋糕都要有它自己的奶油：
-  
-  `ca.iceCream = "香草味奶油";`
-  
-  实例化着重于动作，强调==对象==从无到右的创建过程，而初始化着重于状态，强调==对象的特征==从无到有的过程。
+    `Cake ca = new Cake();`
+    
+    初始化可以理解为，每个蛋糕都要有它自己的奶油：
+    
+    `ca.iceCream = "香草味奶油";`
+    
+    实例化着重于动作，强调==对象==从无到右的创建过程，而初始化着重于状态，强调==对象的特征==从无到有的过程。
   
 
 - 静态块何时运行?
-
-  初始化的顺序大致是这样的：
-  
-  1. 为类中的静态变量分配好空间（同时给变量以默认值）
-  2. 如果创建了类的对象，那么为类的实例变量分配地址空间（同时给变量以默认值）
+    
+    初始化的顺序大致是这样的：
+    1. 为类中的静态变量分配好空间（同时给变量以默认值）2. 如果创建了类的对象，那么为类的实例变量分配地址空间（同时给变量以默认值）
    
-  就在这两步之间，发生了静态块的运行
+    就在这两步之间，发生了静态块的运行
 
 
 - 解释一下 Java 中的泛型?
 
 - `StringBuffer` 和`StringBuilder` 的区别在哪里?
-
-  StringBuffer、StringBuilder和String一样，也用来代表字符串。String类是不可变类，任何对String的改变都 会引发新的String对象的生成；StringBuffer和StringBuilder则是可变类
-  
-  先说一下，以集合为例，HashTable是线程安全的，很多方法都是synchronized方法，而HashMap不是线程安全的，但其在单线程程序中的性能比HashTable要高。StringBuffer和StringBuilder类的区别也是如此，他们的原理和操作基本相同，区别在于StringBufferd支持并发操作，线性安全的，适 合多线程中使用。StringBuilder不支持并发操作，线性不安全的，不适合多线程中使用。新引入的StringBuilder类不是线程安全的，但其在单线程中的性能比StringBuffer高。
+    
+    StringBuffer、StringBuilder和String一样，也用来代表字符串。String类是不可变类，任何对String的改变都 会引发新的String对象的生成；StringBuffer和StringBuilder则是可变类
+    
+    先说一下，以集合为例，HashTable是线程安全的，很多方法都是synchronized方法，而HashMap不是线程安全的，但其在单线程程序中的性能比HashTable要高。StringBuffer和StringBuilder类的区别也是如此，他们的原理和操作基本相同，区别在于StringBufferd支持并发操作，线性安全的，适 合多线程中使用。StringBuilder不支持并发操作，线性不安全的，不适合多线程中使用。新引入的StringBuilder类不是线程安全的，但其在单线程中的性能比StringBuffer高。
 
 - `StringBuilder` 是怎么避免不可变字符串分配的问题？
 
 - 什么是自动装箱和拆箱？
+    
+    简单一点说，装箱就是  自动将基本数据类型转换为包装器类型；拆箱就是  自动将包装器类型转换为基本数据类型
 
+    自动装箱（autoboxing）:
+  
+    一般来说，这是我们创建一个类的实例时，我们会这样：
+    
+    ```
 
-  简单一点说，装箱就是  自动将基本数据类型转换为包装器类型；拆箱就是  自动将包装器类型转换为基本数据类型
+    MyClass a = new MyClass();
 
-  自动装箱（autoboxing）:
-  
-  一般来说，这是我们创建一个类的实例时，我们会这样：
-  
-  ```
-  
-  MyClass a = new MyClass();
-  
-  ```
-  
-  但是当我们新建一些支持自动装箱和拆箱的数据类型的时侯（比如Integer，基本数据类型的包装类），我们可以这样：
-  
-  ```
-  
-  Integer i = 100;
-  
-  ```
-  
-  执行这句语句，将会被编译器执行为：
-  
-  ```
-  
-  Integer i = Integer.valueOf(100);
-  
-  ```
-  
-  这就是自动装箱
-  
-  自动拆箱（unboxing）:
-  
-  将对象中的基本数据从对象中自动取出
-  
-  比如：
-  
-  ```
-  
-  Integer i = 10;//autoboxing
-  int c = i;//unboxing
-  
-  ```
+    ```
+    
+    但是当我们新建一些支持自动装箱和拆箱的数据类型的时侯（比如Integer，基本数据类型的包装类），我们可以这样：
+    
+    ```
+
+    Integer i = 100;
+
+    ```
+    
+    执行这句语句，将会被编译器执行为：
+    
+    ```
+
+    Integer i = Integer.valueOf(100);
+
+    ```
+    
+    这就是自动装箱
+    
+    自动拆箱（unboxing）:
+    
+    将对象中的基本数据从对象中自动取出
+    
+    比如：
+    
+    ```
+
+    Integer i = 10;//autoboxing
+    int c = i;//unboxing
+
+    ```
 
 - 枚举和迭代器有什么区别？
 
 
 
   1. 函数接口不同：
-Enumeration只有2个函数接口。通过Enumeration，我们只能读取集合的数据，而不能对数据进行修改。
-Iterator只有3个函数接口。Iterator除了能读取集合的数据之外，也能数据进行删除操作。
+        
+        Enumeration只有2个函数接口。通过Enumeration，我们只能读取集合的数据，而不能对数据进行修改。
+        Iterator只有3个函数接口。Iterator除了能读取集合的数据之外，也能数据进行删除操作。
   2. Iterator支持fail-fast机制，而Enumeration不支持。
-Enumeration 是JDK 1.0添加的接口。使用到它的函数包括Vector、Hashtable等类，这些类都是JDK 1.0中加入的，Enumeration存在的目的就是为它们提供遍历接口。Enumeration本身并没有支持同步，而在Vector、Hashtable实现Enumeration时，添加了同步。
-而Iterator 是JDK 1.2才添加的接口，它也是为了HashMap、ArrayList等集合提供遍历接口。Iterator是支持fail-fast机制的：当多个线程对同一个集合的内容进行操作时，就可能会产生fail-fast事件。
-  
+        
+        Enumeration 是JDK 1.0添加的接口。使用到它的函数包括Vector、Hashtable等类，这些类都是JDK 1.0中加入的，Enumeration存在的目的就是为它们提供遍历接口。Enumeration本身并没有支持同步，而在Vector、Hashtable实现Enumeration时，添加了同步。
+        而Iterator 是JDK 1.2才添加的接口，它也是为了HashMap、ArrayList等集合提供遍历接口。Iterator是支持fail-fast机制的：当多个线程对同一个集合的内容进行操作时，就可能会产生fail-fast事件。
+        
 
 
 - Java 中 *fail-fast* 和 *fail-safe* 的区别？
@@ -612,59 +818,59 @@ Enumeration 是JDK 1.0添加的接口。使用到它的函数包括Vector、Hash
 
 * 阐述一下 Activity 的生命周期。
 
-创建 onCreate -  启动onStart – 开始 onResume – 暂停 onPause – 结束 onStop – 销毁onDestroy
+    创建 onCreate -  启动onStart – 开始 onResume – 暂停 onPause – 结束 onStop – 销毁onDestroy
 
-每一个活动（ Activity ）都处于某一个状态，对于开发者来说，是无法控制其应用程序处于某一个状态的，这些均由系统来完成。 
-但是当一个活动的状态发生改变的时候，开发者可以通过调用 onXX() 的方法获取到相关的通知信息。 
+    每一个活动（ Activity ）都处于某一个状态，对于开发者来说，是无法控制其应用程序处于某一个状态的，这些均由系统来完成。 
+    但是当一个活动的状态发生改变的时候，开发者可以通过调用 onXX() 的方法获取到相关的通知信息。 
 
-在实现 Activity 类的时候，通过覆盖（ override ）这些方法即可在你需要处理的时候来调用。 
+    在实现 Activity 类的时候，通过覆盖（ override ）这些方法即可在你需要处理的时候来调用。 
 
-•onCreate ：当活动第一次启动的时候，触发该方法，可以在此时完成活动的初始化工作。 
-onCreate 方法有一个参数，该参数可以为空（ null ），也可以是之前调用 onSaveInstanceState（）方法保存的状态信息。
+    • onCreate ：当活动第一次启动的时候，触发该方法，可以在此时完成活动的初始化工作。 
+    onCreate 方法有一个参数，该参数可以为空（ null ），也可以是之前调用 onSaveInstanceState（）方法保存的状态信息。
 
-•onStart ：该方法的触发表示所属活动将被展现给用户。 
+    • onStart ：该方法的触发表示所属活动将被展现给用户。 
 
-•onResume ：当一个活动和用户发生交互的时候，触发该方法。 
+    • onResume ：当一个活动和用户发生交互的时候，触发该方法。 
 
-•onPause ：当一个正在前台运行的活动因为其他的活动需要前台运行而转入后台运行的时候，触发该方法。这时候需要将活动的状态持久化，比如正在编辑的数据库记录等。 
+    • onPause ：当一个正在前台运行的活动因为其他的活动需要前台运行而转入后台运行的时候，触发该方法。这时候需要将活动的状态持久化，比如正在编辑的数据库记录等。 
 
-•onStop ：当一个活动不再需要展示给用户的时候，触发该方法。如果内存紧张，系统会直接结束这个活动，而不会触发 onStop 方法。 所以保存状态信息是应该在onPause时做，而不是onStop时做。活动如果没有在前台运行，都将被停止或者Linux管理进程为了给新的活动预留足够的存储空间而随时结束这些活动。因此对于开发者来说，在设计应用程序的时候，必须时刻牢记这一原则。在一些情况下，onPause方法或许是活动触发的最后的方法，因此开发者需要在这个时候保存需要保存的信息。 
+    • onStop ：当一个活动不再需要展示给用户的时候，触发该方法。如果内存紧张，系统会直接结束这个活动，而不会触发 onStop 方法。 所以保存状态信息是应该在onPause时做，而不是onStop时做。活动如果没有在前台运行，都将被停止或者Linux管理进程为了给新的活动预留足够的存储空间而随时结束这些活动。因此对于开发者来说，在设计应用程序的时候，必须时刻牢记这一原则。在一些情况下，onPause方法或许是活动触发的最后的方法，因此开发者需要在这个时候保存需要保存的信息。 
 
-•onRestart ：当处于停止状态的活动需要再次展现给用户的时候，触发该方法。 
+    • onRestart ：当处于停止状态的活动需要再次展现给用户的时候，触发该方法。 
 
-•onDestroy ：当活动销毁的时候，触发该方法。和 onStop 方法一样，如果内存紧张，系统会直接结束这个活动而不会触发该方法。 
+    • onDestroy ：当活动销毁的时候，触发该方法。和 onStop 方法一样，如果内存紧张，系统会直接结束这个活动而不会触发该方法。 
 
-•onSaveInstanceState ：系统调用该方法，允许活动保存之前的状态，比如说在一串字符串中的光标所处的位置等。 
-通常情况下，开发者不需要重写覆盖该方法，在默认的实现中，已经提供了自动保存活动所涉及到的用户界面组件的所有状态信息。
+    • onSaveInstanceState ：系统调用该方法，允许活动保存之前的状态，比如说在一串字符串中的光标所处的位置等。 
+    通常情况下，开发者不需要重写覆盖该方法，在默认的实现中，已经提供了自动保存活动所涉及到的用户界面组件的所有状态信息。
   
 
 * 谈谈 Android 的四大组件。
 
 1. 活动：
 
-Android 中，Activity是所有程序的根本，所有程序的流程都运行在Activity 之中，Activity可以算是开发者遇到的最频繁，也是Android 当中最基本的模块之一。在Android的程序当中，Activity 一般代表手机屏幕的一屏。如果把手机比作一个浏览器，那么Activity就相当于一个网页。在Activity 当中可以添加一些Button、Check box 等控件。可以看到Activity 概念和网页的概念相当类似。一般一个Android 应用是由多个Activity 组成的。这多个Activity 之间可以进行相互跳转，例如，按下一个Button按钮后，可能会跳转到其他的Activity。和网页跳转稍微有些不一样的是，Activity 之间的跳转有可能返回值，例如，从Activity A 跳转到Activity B，那么当Activity B 运行结束的时候，有可能会给Activity A 一个返回值。这样做在很多时候是相当方便的。
-　　当打开一个新的屏幕时，之前一个屏幕会被置为暂停状态，并且压入历史堆栈中。用户可以通过回退操作返回到以前打开过的屏幕。可以选择性的移除一些没有必要保留的屏幕，因为Android会把每个应用的开始到当前的每个屏幕保存在堆栈中。 
+    Android 中，Activity是所有程序的根本，所有程序的流程都运行在Activity 之中，Activity可以算是开发者遇到的最频繁，也是Android 当中最基本的模块之一。在Android的程序当中，Activity 一般代表手机屏幕的一屏。如果把手机比作一个浏览器，那么Activity就相当于一个网页。在Activity 当中可以添加一些Button、Check box 等控件。可以看到Activity 概念和网页的概念相当类似。一般一个Android 应用是由多个Activity 组成的。这多个Activity 之间可以进行相互跳转，例如，按下一个Button按钮后，可能会跳转到其他的Activity。和网页跳转稍微有些不一样的是，Activity 之间的跳转有可能返回值，例如，从Activity A 跳转到Activity B，那么当Activity B 运行结束的时候，有可能会给Activity A 一个返回值。这样做在很多时候是相当方便的。
+    　　当打开一个新的屏幕时，之前一个屏幕会被置为暂停状态，并且压入历史堆栈中。用户可以通过回退操作返回到以前打开过的屏幕。可以选择性的移除一些没有必要保留的屏幕，因为Android会把每个应用的开始到当前的每个屏幕保存在堆栈中。 
 
 2. 服务
 
-Service 是android 系统中的一种组件，它跟Activity 的级别差不多，但是他不能自己运行，只能后台运行，并且可以和其他组件进行交互。Service 是没有界面的长生命周期的代码。Service是一种程序，它可以运行很长时间，但是它却没有用户界面。这么说有点枯燥，来看个例子。打开一个音乐播放器的程序，这个时候若想上网了，那么，打开Android浏览器，这个时候虽然已经进入了浏览器这个程序，但是，歌曲播放并没有停止，而是在后台继续一首接着一首的播放。其实这个播放就是由播放音乐的Service进行控制。当然这个播放音乐的Service也可以停止，例如，当播放列表里边的歌曲都结束，或者用户按下了停止音乐播放的快捷键等。Service 可以在和多场合的应用中使用，比如播放多媒体的时候用户启动了其他Activity这个时候程序要在后台继续播放，比如检测SD 卡上文件的变化，再或者在后台记录地理信息位置的改变等等，总之服务嘛，总是藏在后头的。
+    Service 是android 系统中的一种组件，它跟Activity 的级别差不多，但是他不能自己运行，只能后台运行，并且可以和其他组件进行交互。Service 是没有界面的长生命周期的代码。Service是一种程序，它可以运行很长时间，但是它却没有用户界面。这么说有点枯燥，来看个例子。打开一个音乐播放器的程序，这个时候若想上网了，那么，打开Android浏览器，这个时候虽然已经进入了浏览器这个程序，但是，歌曲播放并没有停止，而是在后台继续一首接着一首的播放。其实这个播放就是由播放音乐的Service进行控制。当然这个播放音乐的Service也可以停止，例如，当播放列表里边的歌曲都结束，或者用户按下了停止音乐播放的快捷键等。Service 可以在和多场合的应用中使用，比如播放多媒体的时候用户启动了其他Activity这个时候程序要在后台继续播放，比如检测SD 卡上文件的变化，再或者在后台记录地理信息位置的改变等等，总之服务嘛，总是藏在后头的。
 
-开启Service有两种方式:
-（1） Context.startService（）：Service会经历onCreate -> onStart（如果Service还没有运行，则android先调用onCreate（）然后调用onStart（）；
-　　　　如果Service已经运行，则只调用onStart（），所以一个Service的onStart方法可能会重复调用多次 ）；
-　　　　StopService的时候直接onDestroy，如果是调用者自己直接退出而没有调用StopService的话，Service会一直在后台运行。该Service的调用者再启动起来后可以通过stopService关闭Service。
-　　*注意:多次调用Context.startservice（）不会嵌套（即使会有相应的onStart（）方法被调用），所以无论同一个服务被启动了多少次，一旦调用Context.stopService（）或者StopSelf（），他都会被停止。
-　　补充说明：传递给StartService（0的Intent对象会传递给onStart（）方法。调用顺序为：onCreate --> onStart（可多次调用) --> onDestroy。
-（2） Context.bindService（）：Service会经历onCreate（） -->onBind（），onBind将返回给客户端一个IBind接口实例，IBind允许客户端回调服务的方法，比如得到Service运行的状态或其他操作。这个时候把调用者（Context，例如Activity）会和Service绑定在一起，Context退出了，Srevice就会调用onUnbind --> onDestroyed相应退出，所谓绑定在一起就共存亡了。
+    开启Service有两种方式:
+    （1） Context.startService（）：Service会经历onCreate -> onStart（如果Service还没有运行，则android先调用onCreate（）然后调用onStart（）；
+    　　　　如果Service已经运行，则只调用onStart（），所以一个Service的onStart方法可能会重复调用多次 ）；
+    　　　　StopService的时候直接onDestroy，如果是调用者自己直接退出而没有调用StopService的话，Service会一直在后台运行。该Service的调用者再启动起来后可以通过stopService关闭Service。
+    　　*注意:多次调用Context.startservice（）不会嵌套（即使会有相应的onStart（）方法被调用），所以无论同一个服务被启动了多少次，一旦调用Context.stopService（）或者StopSelf（），他都会被停止。
+    　　补充说明：传递给StartService（0的Intent对象会传递给onStart（）方法。调用顺序为：onCreate --> onStart（可多次调用) --> onDestroy。
+    （2） Context.bindService（）：Service会经历onCreate（） -->onBind（），onBind将返回给客户端一个IBind接口实例，IBind允许客户端回调服务的方法，比如得到Service运行的状态或其他操作。这个时候把调用者（Context，例如Activity）会和Service绑定在一起，Context退出了，Srevice就会调用onUnbind --> onDestroyed相应退出，所谓绑定在一起就共存亡了。
 
 3. 广播接收器
 
-在Android 中，Broadcast是一种广泛运用的在应用程序之间传输信息的机制。而BroadcastReceiver 是对发送出来的Broadcast进行过滤接受并响应的一类组件。可以使用BroadcastReceiver 来让应用对一个外部的事件做出响应。这是非常有意思的，例如，当电话呼入这个外部事件到来的时候，可以利用BroadcastReceiver 进行处理。例如，当下载一个程序成功完成的时候，仍然可以利用BroadcastReceiver 进行处理。BroadcastReceiver不能生成UI，也就是说对于用户来说不是透明的，用户是看不到的。BroadcastReceiver通过NotificationManager 来通知用户这些事情发生了。BroadcastReceiver 既可以在AndroidManifest.xml 中注册，也可以在运行时的代码中使用Context.registerReceiver（)进行注册。只要是注册了，当事件来临的时候，即使程序没有启动，系统也在需要的时候启动程序。各种应用还可以通过使用Context.sendBroadcast （） 将它们自己的Intent Broadcasts广播给其他应用程序。
+    在Android 中，Broadcast是一种广泛运用的在应用程序之间传输信息的机制。而BroadcastReceiver 是对发送出来的Broadcast进行过滤接受并响应的一类组件。可以使用BroadcastReceiver 来让应用对一个外部的事件做出响应。这是非常有意思的，例如，当电话呼入这个外部事件到来的时候，可以利用BroadcastReceiver 进行处理。例如，当下载一个程序成功完成的时候，仍然可以利用BroadcastReceiver 进行处理。BroadcastReceiver不能生成UI，也就是说对于用户来说不是透明的，用户是看不到的。BroadcastReceiver通过NotificationManager 来通知用户这些事情发生了。BroadcastReceiver 既可以在AndroidManifest.xml 中注册，也可以在运行时的代码中使用Context.registerReceiver（)进行注册。只要是注册了，当事件来临的时候，即使程序没有启动，系统也在需要的时候启动程序。各种应用还可以通过使用Context.sendBroadcast （） 将它们自己的Intent Broadcasts广播给其他应用程序。
 
 4. 内容提供者
 
-Content Provider 是Android提供的第三方应用数据的访问方案。
-　　在Android中，对数据的保护是很严密的，除了放在SD卡中的数据，一个应用所持有的数据库、文件等内容，都是不允许其他直接访问的。Andorid当然不会真的把每个应用都做成一座孤岛，它为所有应用都准备了一扇窗，这就是Content Provider。应用想对外提供的数据，可以通过派生Content Provider类， 封装成一枚Content Provider，每个Content Provider都用一个uri作为独立的标识，形如：content://com.xxxxx。所有东西看着像REST的样子，但实际上，它比REST 更为灵活。和REST类似，uri也可以有两种类型，一种是带id的，另一种是列表的，但实现者不需要按照这个模式来做，给id的uri也可以返回列表类型的数据，只要调用者明白，就无妨，不用苛求所谓的REST。
+    Content Provider 是Android提供的第三方应用数据的访问方案。
+    　　在Android中，对数据的保护是很严密的，除了放在SD卡中的数据，一个应用所持有的数据库、文件等内容，都是不允许其他直接访问的。Andorid当然不会真的把每个应用都做成一座孤岛，它为所有应用都准备了一扇窗，这就是Content Provider。应用想对外提供的数据，可以通过派生Content Provider类， 封装成一枚Content Provider，每个Content Provider都用一个uri作为独立的标识，形如：content://com.xxxxx。所有东西看着像REST的样子，但实际上，它比REST 更为灵活。和REST类似，uri也可以有两种类型，一种是带id的，另一种是列表的，但实现者不需要按照这个模式来做，给id的uri也可以返回列表类型的数据，只要调用者明白，就无妨，不用苛求所谓的REST。
 
 * Service 与 IntentService 的区别。[Link](https://stackoverflow.com/a/15772151/5153275)
 
@@ -952,7 +1158,7 @@ Content Provider 是Android提供的第三方应用数据的访问方案。
 
 ### License
 
-```
+  ```
    Copyright (C) 2017 stormzhang
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -966,4 +1172,6 @@ Content Provider 是Android提供的第三方应用数据的访问方案。
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
+```
+
 ```
