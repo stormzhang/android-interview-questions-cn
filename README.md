@@ -169,7 +169,7 @@
           public static void selectSort(int[] arr) {
               if(arr == null || arr.length == 0)
                   return ;
-              int minIndex = 0;
+              int minIndex = 0;  
               for(int i=0; i<arr.length-1; i++) { //只需要比较n-1次
                   minIndex = i;
                   for(int j=i+1; j<arr.length; j++) { //从i+1开始比较，因为minIndex默认为i了，i就没必要比了。
@@ -519,7 +519,6 @@
   <p align="center">
 
   <img alt="Overloading and Overriding" src="https://github.com/stormzhang/android-interview-questions-cn/blob/master/assets/overloading-vs-overriding.png">
-
   </p>
 
   - 重载发生在编译时，重写发生在运行时。重载方法调用与其定义的绑定发生在编译时，但是重写方法调用与其定义的绑定在运行时发生。
