@@ -126,6 +126,7 @@
 
 * 排序算法
     - 冒泡排序
+
       冒泡排序是最简单的排序之一了，其大体思想就是通过与相邻元素的比较和交换来把小的数交换到最前面。这个过程类似于水泡向上升一样，因此而得名。举个栗子，对5,3,8,6,4这个无序序列进行冒泡排序。首先从后向前冒泡，4和6比较，把4交换到前面，序列变成5,3,8,4,6。同理4和8交换，变成5,3,4,8,6,3和4无需交换。5和3交换，变成3,5,4,8,6,3.这样一次冒泡就完了，把最小的数3排到最前面了。对剩下的序列依次冒泡就会得到一个有序序列。冒泡排序的时间复杂度为O(n^2)。
 
       ```
@@ -154,7 +155,173 @@
         }
       }
       ```
+    - 选择排序
 
+      选择排序的思想其实和冒泡排序有点类似，都是在一次排序后把最小的元素放到最前面。但是过程不同，冒泡排序是通过相邻的比较和交换。而选择排序是通过对整体的选择。举个栗子，对5,3,8,6,4这个无序序列进行简单选择排序，首先要选择5以外的最小数来和5交换，也就是选择3和5交换，一次排序后就变成了3,5,8,6,4.对剩下的序列一次进行选择和交换，最终就会得到一个有序序列。其实选择排序可以看成冒泡排序的优化，因为其目的相同，只是选择排序只有在确定了最小数的前提下才进行交换，大大减少了交换的次数。选择排序的时间复杂度为O(n^2)
+
+      ```
+      实现代码：
+      /**
+      *@Description:简单选择排序算法的实现
+      */
+      public class SelectSort {
+
+          public static void selectSort(int[] arr) {
+              if(arr == null || arr.length == 0)
+                  return ;
+              int minIndex = 0;
+              for(int i=0; i<arr.length-1; i++) { //只需要比较n-1次
+                  minIndex = i;
+                  for(int j=i+1; j<arr.length; j++) { //从i+1开始比较，因为minIndex默认为i了，i就没必要比了。
+                      if(arr[j] < arr[minIndex]) {
+                          minIndex = j;
+                      }
+                  }
+
+                  if(minIndex != i) { //如果minIndex不为i，说明找到了更小的值，交换之。
+                      swap(arr, i, minIndex);
+                  }
+              }
+
+          }
+
+          public static void swap(int[] arr, int i, int j) {
+              int temp = arr[i];
+              arr[i] = arr[j];
+              arr[j] = temp;
+          }
+
+      }
+      ```
+    - 插入排序
+    
+      插入排序不是通过交换位置而是通过比较找到合适的位置插入元素来达到排序的目的的。相信大家都有过打扑克牌的经历，特别是牌数较大的。在分牌时可能要整理自己的牌，牌多的时候怎么整理呢？就是拿到一张牌，找到一个合适的位置插入。这个原理其实和插入排序是一样的。举个栗子，对5,3,8,6,4这个无序序列进行简单插入排序，首先假设第一个数的位置时正确的，想一下在拿到第一张牌的时候，没必要整理。然后3要插到5前面，把5后移一位，变成3,5,8,6,4.想一下整理牌的时候应该也是这样吧。然后8不用动，6插在8前面，8后移一位，4插在5前面，从5开始都向后移一位。注意在插入一个数的时候要保证这个数前面的数已经有序。简单插入排序的时间复杂度也是O(n^2)。
+
+      ```
+      实现代码：
+      /**
+      *@Description:简单插入排序算法实现
+      */
+      public class InsertSort {
+
+          public static void insertSort(int[] arr) {
+              if(arr == null || arr.length == 0)
+                  return ;
+
+              for(int i=1; i<arr.length; i++) { //假设第一个数位置时正确的；要往后移，必须要假设第一个。
+
+                  int j = i;
+                  int target = arr[i]; //待插入的
+
+                  //后移
+                  while(j > 0 && target < arr[j-1]) {
+                      arr[j] = arr[j-1];
+                      j --;
+                  }
+
+                  //插入 
+                  arr[j] = target;
+              }
+
+          }
+
+      }
+
+      ```
+    - 快速排序
+
+      快速排序一听名字就觉得很高端，在实际应用当中快速排序确实也是表现最好的排序算法。冒泡排序虽然高端，但其实其思想是来自冒泡排序，冒泡排序是通过相邻元素的比较和交换把最小的冒泡到最顶端，而快速排序是比较和交换小数和大数，这样一来不仅把小数冒泡到上面同时也把大数沉到下面。
+
+      ```
+      实现代码：
+      /**
+      *@Description:实现快速排序算法
+      */
+      public class QuickSort {
+          //一次划分
+          public static int partition(int[] arr, int left, int right) {
+              int pivotKey = arr[left];
+              int pivotPointer = left;
+
+              while(left < right) {
+                  while(left < right && arr[right] >= pivotKey)
+                      right --;
+                  while(left < right && arr[left] <= pivotKey)
+                      left ++;
+                  swap(arr, left, right); //把大的交换到右边，把小的交换到左边。
+              }
+              swap(arr, pivotPointer, left); //最后把pivot交换到中间
+              return left;
+          }
+
+          public static void quickSort(int[] arr, int left, int right) {
+              if(left >= right)
+                  return ;
+              int pivotPos = partition(arr, left, right);
+              quickSort(arr, left, pivotPos-1);
+              quickSort(arr, pivotPos+1, right);
+          }
+
+          public static void sort(int[] arr) {
+              if(arr == null || arr.length == 0)
+                  return ;
+              quickSort(arr, 0, arr.length-1);
+          }
+
+          public static void swap(int[] arr, int left, int right) {
+              int temp = arr[left];
+              arr[left] = arr[right];
+              arr[right] = temp;
+          }
+
+      }
+      ```
+    - 希尔排序
+      
+      希尔排序是插入排序的一种高效率的实现，也叫缩小增量排序。简单的插入排序中，如果待排序列是正序时，时间复杂度是O(n)，如果序列是基本有序的，使用直接插入排序效率就非常高。希尔排序就利用了这个特点。基本思想是：先将整个待排记录序列分割成为若干子序列分别进行直接插入排序，待整个序列中的记录基本有序时再对全体记录进行一次直接插入排序。
+
+      ```
+      实现代码：
+      /**
+      *@Description:希尔排序算法实现
+      */
+      public class ShellSort {
+
+          /**
+          * 希尔排序的一趟插入
+          * @param arr 待排数组
+          * @param d 增量
+          */
+          public static void shellInsert(int[] arr, int d) {
+              for(int i=d; i<arr.length; i++) {
+                  int j = i - d;
+                  int temp = arr[i];    //记录要插入的数据  
+                  while (j>=0 && arr[j]>temp) {  //从后向前，找到比其小的数的位置   
+                      arr[j+d] = arr[j];    //向后挪动  
+                      j -= d;  
+                  }  
+
+                  if (j != i - d)    //存在比其小的数 
+                      arr[j+d] = temp;
+
+              }
+          }
+
+          public static void shellSort(int[] arr) {
+              if(arr == null || arr.length == 0)
+                  return ;
+              int d = arr.length / 2;
+              while(d >= 1) {
+                  shellInsert(arr, d);
+                  d /= 2;
+              }
+          }
+
+      }
+      
+      ```
+
+    
       
 
 * 哈希表与哈希图
